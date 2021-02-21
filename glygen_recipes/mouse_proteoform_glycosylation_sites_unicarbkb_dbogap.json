@@ -1,0 +1,155 @@
+{ 
+    "tablelist": [
+        {
+            "id": 1,
+            "type": "input",
+            "separator": ",", 
+            "fields": [
+                "Protein", 
+                "Position",
+				"Position2",
+                "Id",
+                "Toucan",
+                "AminoAcid",
+                "TypeAminoAcid",
+                "Notes",
+                "Pmid",
+                "doi"
+            ],
+            "filepath": "/software/pipeline/integrator/downloads/unicarbkb/dbogap_dbogap2_glygen.csv"
+		},
+        {
+            "id": 2,
+            "type": "input",
+            "separator": "\",\"", 
+            "fields": [
+                "uniprotkb_canonical_ac",
+                "gene_name"
+            ],
+            "filepath": "/data/projects/glygen/generated/datasets/reviewed/mouse_protein_masterlist.csv"
+        },
+        {
+            "id": 3,
+            "type": "input",
+            "fields": [
+                "seq_id",
+                "sequence"
+            ],
+            "filepath": "/data/projects/glygen/generated/datasets/reviewed/mouse_protein_canonicalsequences.fasta"
+        },
+        {
+            "id": 4,
+            "type":"output",
+            "inputtables":[2],
+            "action":{
+                "name":"splitcol",
+                "field":"uniprotkb_canonical_ac",
+                "newfields":["uniprotkb_ac","isoform_suffix"],
+                "delim":"-"
+            }
+        },
+        {
+            "id":5,
+            "inputtables":[1,4],
+            "type":"output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["Protein","uniprotkb_ac"]
+            }
+        },
+        {
+            "id":6,
+            "inputtables":[5,3],
+            "type":"output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["uniprotkb_canonical_ac", "seq_id"]
+            }
+        },
+		{
+			"id":7,
+			"inputtables":[6],
+			"type":"output",
+			"action":{
+				"name":"addconstantfields",
+				"newfields": {
+					"peptide_start_aa":"",
+					"peptide_end_aa":"",
+					"AdditionalNotes":"",
+					"species":"mouse"
+				}
+			}
+		},
+        {
+            "id":8,
+            "inputtables":[7],
+            "type":"output",
+            "action":{
+                "name":"extractseqsites",
+                "start_pos_field":"Position",
+                "end_pos_field":"Position2",
+                "seq_field":"sequence",
+                "pep_field":"peptide",
+                "start_aa_field":"peptide_start_aa",
+                "end_aa_field":"peptide_end_aa"
+            }
+        }
+    ],
+    "outputfiles": [
+        {
+            "tableid": 8,
+            "masterlistfilterfield":"",
+            "filepath": "/software/pipeline/integrator/new_unreviewed/mouse_proteoform_glycosylation_sites_unicarbkb_dbogap.csv",
+           "fields": [
+                {
+                    "newname": "uniprotkb_canonical_ac",
+                    "name": "uniprotkb_canonical_ac"
+                },	
+                {
+                    "newname": "uniprotkb_ac",
+                    "name": "Protein"
+                },
+                {
+                    "newname": "gene_name",
+                    "name": "gene_name"
+                },
+                {
+                    "newname": "position",
+                    "name": "Position"
+                },
+				{
+                    "newname": "amino_acid",
+                    "name": "peptide"
+                },
+                {
+                    "newname": "glycosylation_type",
+                    "name": "TypeAminoAcid"
+                },
+				{
+					"newname": "glytoucan_acc",
+					"name": "Toucan"
+				},
+                {
+                    "newname": "notes",
+                    "name": "Notes"
+                },
+				{
+					"newname":"additional_notes",
+					"name":"AdditionalNotes"
+				},
+                {
+                    "newname": "doi",
+                    "name": "doi"
+                },
+                {
+                    "newname": "pmid",
+                    "name": "Pmid"
+                },
+				{
+                    "newname": "species",
+                    "name": "species"
+                }
+            ]
+        }
+    ]
+}

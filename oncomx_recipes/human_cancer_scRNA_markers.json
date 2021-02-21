@@ -1,0 +1,50 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "marker_gene",
+                    "name": "marker_gene"
+                },
+                {
+                    "newname": "test_cell_type", 
+                    "name": "test_cell_type"
+                }, 
+                {
+                    "newname": "control_cell_type", 
+                    "name": "control_cell_type"
+                }, 
+                {
+                    "newname": "auc", 
+                    "name": "auc"
+                }, 
+                {
+                    "newname": "pvalue", 
+                    "name": "pvalue"
+                },
+                {
+                    "newname": "fdr", 
+                    "name": "fdr"
+                }
+            ], 
+            "tableid": 1, 
+            "filepath": "unreviewed/human_cancer_scRNA_markers.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [ 
+                "marker_gene",
+                "test_cell_type", 
+                "control_cell_type", 
+                "auc",  
+                "pvalue", 
+                "fdr"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "compiled/human_cancer_scRNA_markers.csv"
+        }
+    ]
+}

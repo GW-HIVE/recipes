@@ -1,0 +1,94 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "uniprotkb_ac",
+                    "name": "uniprotkb_ac"
+                },
+                {
+                    "newname": "gene_symbol",
+                    "name": "Gene name"
+                },
+                {
+                    "newname": "ensembl_gene_id", 
+                    "name": "Ensembl gene ID"
+                }, 
+                {
+                    "newname": "uberon_anatomical_entity_id", 
+                    "name": "Anatomical entity ID"
+                }, 
+                {
+                    "newname": "uberon_anatomical_entity_name", 
+                    "name": "Anatomical entity name"
+                }, 
+                {
+                    "newname": "uberon_developmental_stage_id", 
+                    "name": "Developmental stage ID"
+                }, 
+                {
+                    "newname": "uberon_developmental_stage_name", 
+                    "name": "Developmental stage name"
+                }, 
+                {
+                    "newname": "expression_level_relative_to_gene", 
+                    "name": "Expression level relative to gene"
+                }, 
+                {
+                    "newname": "expression_level_relative_to_anatomical_entity", 
+                    "name": "Expression level relative to anatomical entity"
+                }, 
+                {
+                    "newname": "call_quality", 
+                    "name": "Call quality"
+                }, 
+                {
+                    "newname": "expression_rank_score", 
+                    "name": "Expression rank score"
+                }
+            ], 
+            "tableid": 3, 
+            "masterlistfilterfield":"uniprotkb_ac",
+            "filepath": "unreviewed/human_normal_expression.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\t", 
+            "fields": [
+                "Gene name",
+                "Ensembl gene ID", 
+                "Anatomical entity ID", 
+                "Anatomical entity name", 
+                "Developmental stage ID", 
+                "Developmental stage name", 
+                "Expression level relative to gene", 
+                "Expression level relative to anatomical entity", 
+                "Call quality", 
+                "Expression rank score"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/bgee/current/Homo_sapiens_UBERON:0000113_RNA_SEQ.tsv"
+        },
+        {
+            "id": 2,
+            "type": "input",
+            "filepath": "unreviewed/biomarker_masterlist.csv",
+            "separator": "\",\"",
+            "fields": [
+                "gene_symbol",
+                "uniprotkb_ac"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["Gene name", "gene_symbol"]
+            },
+            "inputtables":[1,2]
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{ 
+	"tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            		"fields": [
+                		"GlyTouCanAccession",
+				"MotifAccession",
+				"Label",
+				"IsReducingEnd"
+            		],
+            			"filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/allmotifaligns.tsv"
+		},
+		{
+			"id": 2,
+			"type": "input",
+			"separator": "\t", 
+            		"fields": [
+				"MotifAccession",
+				"Label"
+            		],
+            			"filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/allmotifaligns.tsv"
+		},
+		{
+        		"id": 3,
+	    		"type": "output",
+	    		"inputtables": [2], 
+        		"action": {
+				"name":"splitcol",
+				"field":"MotifAccession",
+				"newfields":["collection_name","collection_accession"],
+				"delim":"."
+				}
+		},
+		{
+        		"id": 4,
+	    		"type": "output",
+	    		"inputtables": [1,3], 
+        		"action": {
+				"name":"jointables",
+				"anchorfields":["Label","Label"]
+				}
+        	},
+		{
+			"id": 5,
+			"type": "output",
+			"inputtables": [4],
+			"action":{
+				"name":"addconstantfields",
+				"newfields":{
+					"alternative_name":"",
+					"aglycon":"",
+					"motif_ac_xref":""
+				}
+			}
+		}		
+    	],
+    	"outputfiles": [
+        	{
+            		"fields": [
+				{
+					"newname": "glytoucan_ac",
+					"name": "GlyTouCanAccession"
+				},
+				{
+					"newname": "motif_ac",
+					"name": "MotifAccession"
+				},
+				{
+					"newname": "motif_name",
+					"name": "Label"
+				},
+				{
+					"newname": "is_reducing_end",
+					"name": "IsReducingEnd"
+				},
+				{
+					"newname": "collection_name",
+					"name": "collection_name"
+				},
+				{
+					"newname": "collection_accession",
+					"name": "collection_accession"
+				},
+				{
+					"newname": "alternative_name",
+					"name": "alternative_name"
+				},
+				{
+					"newname": "aglycon",
+					"name": "aglycon"
+				},
+				{
+					"newname": "motif_ac_xref",
+					"name": "motif_ac_xref"
+				}			
+            		], 
+            		"tableid": 5, 
+            		"masterlistfilterfield":"glytoucan_ac",
+            		"filepath": "/software/pipeline/integrator/new_unreviewed/glycan_motif.csv"
+        	}
+    	]
+}

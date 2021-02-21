@@ -1,0 +1,123 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+		{
+		    "newname": "gene_symbol",
+		    "name": "Gene Symbol"
+		},
+		{
+                    "newname": "uniprotkb_ac",
+                    "name": "Uniprot AC"
+                },
+		{
+                    "newname": "chr_num",
+                    "name": "chr_num"
+                },
+		{
+                    "newname": "loc",
+                    "name": "loc"
+                },
+		{
+		    "newname":"ref|alt",
+		    "name":"ref|alt"
+		},
+		{
+		    "newname":"exac_alt_freq",
+		    "name":"EXAC Alt Frequency"
+		},
+		{
+		    "newname":"1000g_alt_freq",
+		    "name":"1000 Genomes Alt Frequency"
+		}
+            ], 
+            "tableid": 7, 
+            "masterlistfilterfield":"",
+            "filepath": "unreviewed/test/example_part1.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1,
+	    "type": "input",
+	    "separator": "\",\"", 
+            "fields": [
+                "Uniprot AC", 
+                "Chr:Pos",
+                "Ref NT", 
+                "Alt NT",
+		"EXAC Alt Frequency",
+		"1000 Genomes Alt Frequency" 
+            ],
+            "filepath": "downloads/test/example_mutations_1.csv"
+        },
+        {                                                      	
+            "id": 2,
+            "type": "input",
+            "separator": "\",\"", 
+            "fields": [
+                "Uniprot AC", 
+                "Chr:Pos",
+                "Ref NT", 
+                "Alt NT",
+      	        "EXAC Alt Frequency",
+      	        "1000 Genomes Alt Frequency" 
+            ],
+            "filepath": "downloads/test/example_mutations_2.csv"
+	},
+	{
+	    "id": 3,
+	    "type": "input",
+            "separator": "\",\"", 
+            "fields": [
+                "Uniprot Accession",
+                "Gene Symbol" 
+            ],  
+            "filepath": "downloads/test/example_mapping.csv"
+        },
+	{
+	    "id": 4,
+	    "type": "output",  
+	    "inputtables":[1,2],
+	    "action":{
+		"name":"union"
+            } 
+        },
+	{
+	    "id": 5,
+	    "type": "output",  
+	    "inputtables":[4,3],
+	    "action":{
+		"name":"jointables",
+		"anchorfields":["Uniprot AC","Uniprot Accession"]
+            } 
+        },
+	{
+	    "id": 6,
+	    "type":"output",
+	    "inputtables":[5],
+	    "action":{
+		"name":"makecombofield",
+		"fieldlist":[
+		    "Ref NT",
+		    "Alt NT"
+		],
+		"merge_char":"|",
+		"combofield":"ref|alt"
+	    }
+	},	
+ 	{
+	    "id": 7,
+	    "type":"output",
+	    "inputtables":[6],
+	    "action":{
+		"name":"splitcol",
+		"field":"Chr:Pos",
+		"newfields":["chr_num","loc"],
+		"delim":":"
+	    }
+	}
+   
+    ]
+}
+

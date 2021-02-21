@@ -1,0 +1,111 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprot_ac"
+                }, 
+                {
+                    "newname": "refseq_ac", 
+                    "name": "refseq_ac"
+                }, 
+                {
+                    "newname": "gene_symbol", 
+                    "name": "gene_name"
+                }, 
+                {
+                    "newname": "log2fc", 
+                    "name": "log2fc"
+                }, 
+                {
+                    "newname": "pvalue", 
+                    "name": "pvalue"
+                }, 
+                {
+                    "newname": "adjpvalue",
+                    "name": "adjpvalue"
+                }, 
+                {
+                    "newname": "statistical_significance", 
+                    "name": "significance"
+                }, 
+                {
+                    "newname": "direction", 
+                    "name": "direction"
+                },
+                {
+                    "newname": "subjects_up",   
+                    "name": "subjects_up"
+                },
+                {
+                    "newname": "subjects_down",   
+                    "name": "subjects_down"
+                },
+                {
+                    "newname": "subjects_nochange",   
+                    "name": "subjects_nochange"
+                },
+                {
+                    "newname": "subjects_total",   
+                    "name": "subjects_total"
+                },
+                {
+                    "newname": "data_source", 
+                    "name": "data_source"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "pmid"
+                }, 
+                {
+                    "newname": "study_id", 
+                    "name": "study_id"
+                }, 
+                {
+                    "newname": "do_id", 
+                    "name": "doid"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "doname"
+                }, 
+                {
+                    "newname": "uberon_anatomical_entity_id", 
+                    "name": "uberon_id"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"uniprotkb_ac",
+            "filepath": "unreviewed/human_cancer_mRNA_expression.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "uniprot_ac", 
+                "refseq_ac", 
+                "gene_name", 
+                "log2fc", 
+                "pvalue", 
+                "adjpvalue",
+                "significance",
+                "direction",
+                "subjects_up",
+                "subjects_down",
+                "subjects_nochange",
+                "subjects_total",
+                "data_source",
+                "study_id",
+                "pmid",
+                "doid",
+                "doname",
+                "uberon_id"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/bioxpress/current/human_cancer_mRNA_expression.csv"
+        }
+    ]
+}

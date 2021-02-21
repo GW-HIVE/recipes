@@ -1,0 +1,81 @@
+{ 
+	"tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            		"fields": [
+                		"Aacc", 
+                		"site",
+                		"ambiguous_sites",
+				"amino_acid",
+				"peptide_start",
+				
+				],
+            		"filepath": "/software/pipeline/integrator/downloads/unicarbkb/simple_cell_ambiguous_sites/unicarbkb_simple_cell_ambiguous_sites.csv"
+		},
+		{
+			"id": 2,
+			"type":"output",
+			"inputtables": [1],
+				"action":{
+					"name":"addconstantfields",
+					"newfields": {
+						"peptide":"peptide",
+						"peptide_start_aa":"a",	
+						"peptide_end_aa":"b'
+					}
+				}
+		}
+		}
+	],
+	"outputfiles": [
+        	{
+            		"fields": [
+				{
+					"newname": "glytoucan_ac",
+					"name": "GlyTouCanAccession"
+				},
+				{
+					"newname": "uniprotkb_canonical_ac",
+					"name": "Enzyme_UniProtAccession"
+				},
+				{
+					"newname": "gene_name",
+					"name": "Enzyme_GeneName"
+				},
+				{
+					"newname": "gene_id",
+					"name": "Enzyme_GeneID"
+				},
+				{
+					"newname": "residue_name",
+					"name": "residue_name"
+				},
+				{
+					"newname": "residue_id",
+					"name": "residue_id"
+				},
+				{
+					"newname": "parent_residue_id",
+					"name": "parent_residue_id"
+				},
+				{
+					"newname": "enzyme_type",
+					"name": "enzyme_type"
+				},
+				{
+					"newname": "species",
+					"name": "species"
+				},
+				{
+					"newname": "recommended_name_full",
+					"name": "recommended_name_full"
+				}
+            		], 
+            		"tableid": 2, 
+            		"masterlistfilterfield":"glytoucan_ac",
+            		"filepath": "/software/pipeline/integrator/new_unreviewed/glycan_enzyme.csv"
+        	}
+	]
+}

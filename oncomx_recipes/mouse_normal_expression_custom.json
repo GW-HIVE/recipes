@@ -1,0 +1,139 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "Gene name"
+                },
+                {
+                    "newname": "human_ortholog_symbol",
+                    "name": "human_gene_symbol"
+                },
+                {
+                    "newname": "uberon_anatomical_id",
+                    "name": "Anatomical entity ID"
+                }, 
+                {
+                    "newname": "uberon_anatomical_name_long", 
+                    "name": "Anatomical entity name"
+                }, 
+                {   
+                    "newname": "uberon_anatomical_name_short",
+                    "name": "uberon_anatomical_entity_name"
+                },
+                {
+                    "newname": "expression_level_anatomical_relative", 
+                    "name": "Expression level relative to anatomical entity"
+                }, 
+                {
+                    "newname": "expression_score", 
+                    "name": "Expression score"
+                }
+            ], 
+            "tableid": 7, 
+            "filepath": "unreviewed/mouse_normal_expression_custom.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1, 
+            "type": "input",
+            "filepath": "downloads/bgee/current/Mus_musculus_UBERON:0000066_AFFYMETRIX_RNA_SEQ.tsv",
+            "separator": "\t", 
+            "fields": [
+                "Gene name",
+                "Ensembl gene ID", 
+                "Anatomical entity ID", 
+                "Anatomical entity name", 
+                "Developmental stage ID", 
+                "Developmental stage name", 
+                "Expression level relative to gene", 
+                "Expression level relative to anatomical entity", 
+                "Call quality",
+                "Expression rank score",
+		"Expression score"
+            ]
+        },
+        {   
+            "id": 2,
+            "type": "input",
+            "filepath": "compiled/OMA_ensembl_mapping.csv",
+            "separator": "\",\"",
+            "fields": [
+                "mouse_gene_symbol",
+                "human_gene_symbol"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "input",
+            "filepath": "compiled/human_cdo_slim_uberon_mapping.csv",
+            "separator": "\",\"",
+            "fields": [
+                "uberon_anatomical_entity_name",
+                "uberon_anatomical_entity_syn"
+            ]
+        },
+        {
+            "id": 4, 
+            "type": "output",
+            "inputtables":[1],
+            "action":{
+                "name":"makecombofield",
+                "fieldlist":[
+                    "Anatomical entity name",
+                    "Developmental stage ID"
+                ],
+                "merge_char":"|",
+                "combofield":"anatomical_entity_name_and_developmental_stage_id"
+            }
+        },
+        {
+    	    "id": 5,
+            "type":"output",
+            "inputtables":[4],
+            "action":{
+                "name":"filterin",
+                "operation":"AND",
+                "conditionlist":[
+                    {
+                        "field":"anatomical_entity_name_and_developmental_stage_id",
+                        "value":[
+                            "lung|UBERON:0000113",
+                            "liver|UBERON:0000113",
+                            "uterus|MmusDv:0000061",
+                            "stomach|UBERON:0000113",
+                            "prostate gland|MmusDv:0000075",
+                            "esophagus|MmusDv:0000063",
+                            "adult mammalian kidney|UBERON:0000113",
+                            "urinary bladder|MmusDv:0000069",
+                            "pancreas|UBERON:0000113",
+                            "uterine cervix|UBERON:0000113",
+                            "thoracic mammary gland|MmusDv:0000064" 
+                        ],
+                        "operation":"in"
+                    }
+                ]
+            }
+    	},
+        {
+            "id": 6,
+            "type": "output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["Anatomical entity name","uberon_anatomical_entity_syn"]
+            },
+            "inputtables":[5,3]
+        },
+        {
+            "id": 7,
+            "type": "output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["Gene name","mouse_gene_symbol"]
+            },
+            "inputtables":[6,2]
+        }
+    ]
+}

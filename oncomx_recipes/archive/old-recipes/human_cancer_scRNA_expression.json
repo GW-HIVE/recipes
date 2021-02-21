@@ -1,0 +1,61 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "gene_symbol", 
+                    "name": "gene_symbol"
+                }, 
+                {
+                    "newname": "ensembl_gene_id", 
+                    "name": "ensembl_gene_id"
+                }, 
+                {
+                    "newname": "cell_type", 
+                    "name": "cell_type"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "doid"
+                }, 
+                {
+                    "newname": "pem", 
+                    "name": "pem"
+                }, 
+                {
+                    "newname": "level", 
+                    "name": "level"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"uniprotkb_ac",
+            "filepath": "unreviewed/human_cancer_scRNA_expression.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "uniprotkb_ac", 
+                "gene_symbol", 
+                "ensembl_gene_id", 
+                "cell_type", 
+                "do_name", 
+                "doid", 
+                "pem", 
+                "level"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "compiled/human_cancer_scRNA_expression.csv"
+        }
+    ]
+}

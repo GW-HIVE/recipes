@@ -1,0 +1,82 @@
+{ 
+    "tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            "fields": [
+                "accession",
+				"Hex",
+				"HexNAc",
+				"dHex",
+				"NeuAc",
+				"NeuGc",
+				"HexA",
+				"HexN",
+				"S",
+				"P",
+				"aldi",
+				"Xxx",
+				"Count"
+            ],
+            "filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/monocomp.tsv"
+		}
+    ],
+    "outputfiles": [
+        {
+            "fields": [
+			{
+				"newname": "glytoucan_ac",
+				"name": "accession"
+			},
+			{
+				"newname": "Hex",
+				"name": "Hex"
+			},
+			{
+				"newname": "HexNAc",
+				"name": "HexNAc"
+			},
+			{
+				"newname": "dHex",
+				"name": "dHex"
+			},
+			{
+				"newname": "NeuAc",
+				"name": "NeuAc"
+			},
+			{
+				"newname": "NeuGc",
+				"name": "NeuGc"
+			},	
+			{
+				"newname": "HexN",
+				"name": "HexN"
+			},
+			{
+				"newname": "S",
+				"name": "S"
+			},
+			{
+				"newname": "P",
+				"name": "P"
+			},
+			{
+				"newname": "aldi",
+				"name": "aldi"
+			},
+			{
+				"newname": "Xxx",
+				"name": "Xxx"
+			},
+			{
+				"newname": "Count",
+				"name": "Count"
+			}			
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"glytoucan_ac",
+            "filepath": "/software/pipeline/integrator/new_unreviewed/glycan_monosaccharide_composition.csv"
+        }
+    ]
+}

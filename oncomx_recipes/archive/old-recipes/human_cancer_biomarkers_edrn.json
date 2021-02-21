@@ -1,0 +1,144 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "uniprotkb_ac",
+                    "name": "uniprotkb_ac"
+                },
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "subject", 
+                    "name": "subject"
+                }, 
+                {
+                    "newname": "alias", 
+                    "name": "alias"
+                }, 
+                {
+                    "newname": "associated_dataset", 
+                    "name": "associated_dataset"
+                }, 
+                {
+                    "newname": "biomarker_id", 
+                    "name": "biomarker_id"
+                }, 
+                {
+                    "newname": "description", 
+                    "name": "description"
+                }, 
+                {
+                    "newname": "is_panel", 
+                    "name": "is_panel"
+                }, 
+                {
+                    "newname": "modified", 
+                    "name": "modified"
+                }, 
+                {
+                    "newname": "qa_state", 
+                    "name": "qa_state"
+                }, 
+                {
+                    "newname": "security", 
+                    "name": "security"
+                }, 
+                {
+                    "newname": "short_name", 
+                    "name": "short_name"
+                }, 
+                {
+                    "newname": "title", 
+                    "name": "title"
+                }, 
+                {
+                    "newname": "type", 
+                    "name": "type"
+                }, 
+                {
+                    "newname": "urn", 
+                    "name": "urn"
+                }, 
+                {
+                    "newname": "has_biomarker", 
+                    "name": "has_biomarker"
+                }, 
+                {
+                    "newname": "has_biomarker_study_datas", 
+                    "name": "has_biomarker_study_datas"
+                }, 
+                {
+                    "newname": "indicator_for_organ", 
+                    "name": "indicator_for_organ"
+                }, 
+                {
+                    "newname": "member_of_panel", 
+                    "name": "member_of_panel"
+                }, 
+                {
+                    "newname": "referenced_in_publication", 
+                    "name": "referenced_in_publication"
+                }, 
+                {
+                    "newname": "references_resource", 
+                    "name": "references_resource"
+                }
+            ], 
+            "tableid": 3, 
+            "masterlistfilterfield":"uniprotkb_ac",
+            "filepath": "unreviewed/human_cancer_biomarkers_edrn.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1,
+            "type": "input",
+            "filepath": "downloads/edrn/current/human_cancer_biomarkers_edrn.csv",
+            "separator": "\",\"", 
+            "fields": [
+                "gene_symbol",
+                "subject", 
+                "alias", 
+                "associated_dataset", 
+                "biomarker_id", 
+                "description", 
+                "is_panel", 
+                "modified", 
+                "qa_state", 
+                "security", 
+                "short_name", 
+                "title", 
+                "type", 
+                "urn", 
+                "has_biomarker", 
+                "has_biomarker_study_datas", 
+                "indicator_for_organ", 
+                "member_of_panel", 
+                "referenced_in_publication", 
+                "references_resource"
+            ] 
+        },
+        {
+            "id": 2,
+            "type": "input",
+            "filepath": "unreviewed/biomarker_masterlist.csv",
+            "separator": "\",\"",
+            "fields": [
+                "gene_symbol",
+                "uniprotkb_ac"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["gene_symbol", "gene_symbol"]
+            },
+            "inputtables":[1,2]
+        }
+    ]
+}

@@ -1,0 +1,191 @@
+{ 
+    "tablelist": [
+        {
+            "id": 1,
+            "type": "input",
+            "separator": ",", 
+            "fields": [
+                "Protein",
+                "Composition",
+                "toucan",
+                "AminoAcid",
+                "TypeAminoAcid",
+                "Notes",
+                "Pmid",
+                "AdditionalNotes",
+                "doi",
+                "Tissue",
+                "Species",
+                "Uoxf",
+				"Abundance",
+				"Related",
+				"Preprint",
+				"Cellosaurus",
+				"Peptide"	
+            ],
+            "filepath": "/software/pipeline/integrator/downloads/unicarbkb/human_proteoform_glycosylation_sites_unicarbkb_ogalnac_data.csv"
+		},
+        {
+            "id": 2,
+            "type": "input",
+            "separator": "\",\"", 
+            "fields": [
+                "uniprotkb_canonical_ac",
+                "gene_name"
+            ],
+            "filepath": "/data/projects/glygen/generated/datasets/reviewed/human_protein_masterlist.csv"
+        },
+        {
+            "id": 3,
+            "type": "input",
+            "fields": [
+                "seq_id",
+                "sequence"
+            ],
+            "filepath": "/data/projects/glygen/generated/datasets/reviewed/human_protein_canonicalsequences.fasta"
+        },
+        {
+            "id": 4,
+            "type":"output",
+            "inputtables":[2],
+            "action":{
+                "name":"splitcol",
+                "field":"uniprotkb_canonical_ac",
+                "newfields":["uniprotkb_ac","isoform_suffix"],
+                "delim":"-"
+            }
+        },
+        {
+            "id":5,
+            "inputtables":[1,4],
+            "type":"output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["Protein","uniprotkb_ac"]
+            }
+        },
+        {
+            "id":6,
+            "inputtables":[5,3],
+            "type":"output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["uniprotkb_canonical_ac", "seq_id"]
+            }
+        },
+		{
+            "id":7,
+            "inputtables":[6],
+            "type":"output",
+            "action":{
+                "name":"extractpeptideranges",
+                "input_fields":{
+                    "sequence_field":"sequence",
+                    "peptide_field":"Peptide"
+                },
+                "output_fields":{
+                    "start_pos_field":"peptide_start",
+                    "end_pos_field":"peptide_end",
+                    "repeat_count_field":"repeate_count"
+                }
+            }
+        }
+    ],
+    "outputfiles": [
+        {
+            "tableid": 7,
+            "masterlistfilterfield":"",
+            "filepath": "/software/pipeline/integrator/new_unreviewed/human_proteoform_glycosylation_sites_unicarbkb_ogalnac_data.csv",
+           "fields": [
+                {
+                    "newname": "uniprotkb_canonical_ac",
+                    "name": "uniprotkb_canonical_ac"
+                },	
+                {
+                    "newname": "uniprotkb_ac",
+                    "name": "Protein"
+                },
+                {
+                    "newname": "gene_name",
+                    "name": "gene_name"
+                },
+                {
+                    "newname": "composition",
+                    "name": "Composition"
+                },
+				{
+                    "newname": "glytoucan_ac",
+                    "name": "toucan"
+                },
+                {
+                    "newname": "peptide_start_aa",
+                    "name": "AminoAcid"
+                },
+                {
+                    "newname":"peptide",
+                    "name":"Peptide"
+                },
+                {
+                    "newname": "type_aa",
+                    "name": "TypeAminoAcid"
+                },
+                {
+                    "newname": "cellosaurus",
+                    "name": "Cellosaurus"
+                },
+                {
+                    "newname": "doi",
+                    "name": "doi"
+                },
+                {
+                    "newname": "pmid",
+                    "name": "Pmid"
+                },
+                {
+                    "newname": "tissue",
+                    "name": "Tissue"
+                },
+                {
+                    "newname": "species",
+                    "name": "Species"
+                },
+                {
+                    "newname": "notes",
+                    "name": "Notes"
+                },
+				{
+                    "newname": "additional_notes",
+                    "name": "AdditionalNotes"
+                },
+				{
+                    "newname": "uoxf",
+                    "name": "Uoxf"
+                },
+				{
+                    "newname": "abundance",
+                    "name": "Abundance"
+                },
+				{
+                    "newname": "related",
+                    "name": "Related"
+                },
+				{
+                    "newname": "preprint",
+                    "name": "Preprint"
+               	},
+                {                           
+                    "newname": "peptide_start",
+                    "name": "peptide_start"                     
+                },
+                {   
+                    "newname": "peptide_end",
+                    "name": "peptide_end"
+                },
+                {   
+                    "newname":"repeate_count",
+                    "name":"repeate_count"
+                }
+            ]
+        }
+    ]
+}

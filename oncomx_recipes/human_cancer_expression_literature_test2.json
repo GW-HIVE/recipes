@@ -1,0 +1,278 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname":"gene_symbol",
+                    "name":"gene_symbol"
+                },
+                {
+                    "newname":"uniprotkb_swissprot_ac",
+                    "name":"UniProtKB/SwissProt AC"
+                }, 
+                {
+                    "newname":"entrez_id",
+                    "name":"Entrez ID"
+                }, 
+                {
+                    "newname":"gene_mention",
+                    "name":"Gene Mention"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "PMID"
+                }, 
+                {
+                    "newname": "slim", 
+                    "name": "Slim"
+                }, 
+		{
+		    "newname":"disease_mention",
+		    "name":"Disease Mention"
+		},
+                {
+                    "newname":"disease_extracted_from",
+                    "name":"Disease Extracted From"
+                },
+		{ 
+                    "newname":"expression_level",
+                    "name":"Expression Level"
+                }, 
+                {
+                    "newname":"sentence_type",
+                    "name":"Sentence Type"
+                }, 
+                {
+                    "newname":"sample_1",
+                    "name":"Sample 1"
+                }, 
+                {
+                    "newname":"sample_2",
+                    "name":"Sample 2"
+                }, 
+                {
+                    "newname":"is_same_patient",
+                    "name":"Is Same Patient"
+                }, 
+		{
+		    "newname":"sentence_text",
+		    "name":"Sentence Text"
+		},
+		{
+		    "newname":"doid",
+		    "name":"DOID"
+		},
+		{
+		    "newname":"doid_name",
+		    "name":"DOID Name"
+		},
+		{
+		    "newname":"do_full",
+		    "name":"do_full"
+		},
+		{
+		    "newname":"child_organ_system",
+		    "name":"Child_Organ_system"
+		}
+            ], 
+            "tableid": 8, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_expression_literature_test2.csv"
+        },
+        {
+            "fields": [
+                {
+                    "newname":"gene_symbol",
+                    "name":"gene_symbol"
+                },
+                {
+                    "newname":"uniprotkb_swissprot_ac",
+                    "name":"UniProtKB/SwissProt AC"
+                }, 
+                {
+                    "newname":"entrez_id",
+                    "name":"Entrez ID"
+                }, 
+                {
+                    "newname":"gene_mention",
+                    "name":"Gene Mention"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "PMID"
+                }, 
+                {
+                    "newname": "slim", 
+                    "name": "Slim"
+                }, 
+		{
+		    "newname":"disease_mention",
+		    "name":"Disease Mention"
+		},
+                {
+                    "newname":"disease_extracted_from",
+                    "name":"Disease Extracted From"
+                },
+		{ 
+                    "newname":"expression_level",
+                    "name":"Expression Level"
+                }, 
+                {
+                    "newname":"sentence_type",
+                    "name":"Sentence Type"
+                }, 
+                {
+                    "newname":"sample_1",
+                    "name":"Sample 1"
+                }, 
+                {
+                    "newname":"sample_2",
+                    "name":"Sample 2"
+                }, 
+                {
+                    "newname":"is_same_patient",
+                    "name":"Is Same Patient"
+                }, 
+		{
+		    "newname":"sentence_text",
+		    "name":"Sentence Text"
+		},
+		{
+		    "newname":"doid",
+		    "name":"DOID"
+		},
+		{
+		    "newname":"doid_name",
+		    "name":"DOID Name"
+		},
+		{
+		    "newname":"do_full",
+		    "name":"do_full"
+		},
+		{
+		    "newname":"child_organ_system",
+		    "name":"Child_Organ_system"
+		}
+            ], 
+            "tableid": 9, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_expression_literature_test2_filteredout.csv"
+        }
+    ],
+ 
+    "tablelist": [
+        {
+            "id": 1,
+		"separator": "\",\"", 
+            "fields": [
+                "gene_symbol",
+                "UniProtKB/SwissProt AC", 
+                "Entrez ID", 
+                "Gene Mention", 
+                "PMID", 
+                "DOID", 
+                "DOID Name", 
+                "Disease Mention", 
+                "Disease Extracted From", 
+                "Expression Level", 
+                "Sentence Type", 
+                "Sample 1", 
+                "Sample 2", 
+                "Is Same Patient", 
+                "Sentence Text"
+            ], 
+            "type": "input",  
+            "filepath": "downloads/dexter/current/DEXTER_cancer_gene_output-modified.csv"
+        },
+	{
+            "id": 2,
+		"separator": "\",\"", 
+            "fields": [
+                "Slim",
+		"Top_Level_Organ_system",
+		"Child_Organ_system"
+            ], 
+            "type": "input",  
+            "filepath": "compiled/slim_disease_term_mapping_unique.csv"
+        },
+	{
+            "id": 3,
+            "type": "output",
+	    "inputtables":[1],
+            "action":{
+                "name":"makecombofield",
+                "fieldlist":[
+			"DOID","DOID Name"],
+		"merge_char":" / ",
+		"combofield":"do_full"
+            	}
+        },
+	{
+            "id": 4,
+            "type": "output",
+	    "inputtables":[3,2],
+            "action":{
+                "name":"jointables",
+                "anchorfields":["do_full","Top_Level_Organ_system"]
+            }
+	},
+    	{
+	    "id": 5,
+	    "type":"output",
+	    "inputtables":[3,2],
+	    "action":{
+		"name":"jointables",
+		"anchorfields":["do_full","Child_Organ_system"]
+	    }
+	},
+	{
+	    "id": 6,
+	    "type":"output",
+	    "inputtables":[2,3],
+            "action":{
+		"name":"jointables",
+		"anchorfields":["Slim","do_full"]
+	    }
+	},
+	{
+	    "id": 7,
+	    "type":"output",
+	    "inputtables":[4,5,6],
+	    "action":{
+		"name":"union"
+	    }
+	},
+	{
+	    "id": 8,
+	    "type":"output",
+	    "inputtables":[7],
+	    "action":{
+		"name":"filterout",
+		"operation":"AND",
+		"conditionlist":[
+		    {
+			"field":"Slim",
+			"value":["","-"],
+			"operation":"in"
+		    }
+	        ]
+	    }
+	},
+	{
+	    "id": 9, 
+	    "type":"output",
+	    "inputtables":[7],
+	    "action":{
+		"name":"filterin",
+		"operation":"AND",
+		"conditionlist":[
+		    {
+			"field":"Slim",
+			"value":["","-"],
+			"operation":"in"
+		    }
+		]
+	    }
+	}   
+    ]
+}

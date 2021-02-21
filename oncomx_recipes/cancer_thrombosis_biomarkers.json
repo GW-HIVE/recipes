@@ -1,0 +1,72 @@
+{ 
+    "tablelist": [
+        {
+            "id": 1,
+	    "type": "input",
+	    "separator": "\",\"", 
+            "fields": [
+                "gene_symbol", 
+                "protein_name",
+                "patient_id", 
+                "patient_group",
+		"glycan_composition",
+		"mz_value",
+		"intensity",
+		"normalized_intensity",
+		"average_normalized_intensity",
+		"glytoucan_ac"
+            ],
+            "filepath": "downloads/human_cancer_glycotyper_2.csv"
+        }
+    ],
+    "outputfiles": [
+        {
+            "fields": [
+		{
+		    "newname": "gene_symbol",
+		    "name": "gene_symbol"
+		},
+		{
+                    "newname": "protein_name",
+                    "name": "protein_name"
+                },
+		{
+                    "newname": "patient_id",
+                    "name": "patient_id"
+                },
+		{
+                    "newname": "patient_group",
+                    "name": "patient_group"
+                },
+		{
+		    "newname":"glycan_composition",
+		    "name":"glycan_composition"
+		},
+		{
+		    "newname":"mz_value",
+		    "name":"mz_value"
+		},
+		{
+		    "newname":"intensity",
+		    "name":"intensity"
+		},
+		{
+		    "newname":"normalized_intesity",
+		    "name":"normalized_intensity"
+		},
+		{
+		    "newname":"average_normalized_intensity",
+		    "name":"average_normalized_intensity"
+		},
+		{
+		    "newname":"glytoucan_ac",
+		    "name":"glytoucan_ac"
+		}
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"",
+            "filepath": "unreviewed/cancer_thrombosis_biomarkers.csv"
+        }
+    ]
+}
+

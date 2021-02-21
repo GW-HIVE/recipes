@@ -1,0 +1,66 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "cell_type", 
+                    "name": "cell_type"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "doid"
+                },
+                {
+                    "newname": "uberon_anatomical_id", 
+                    "name": "uberon_anatomical_id"
+                }, 
+                {
+                    "newname": "pem_score", 
+                    "name": "pem_score"
+                }, 
+                {
+                    "newname": "gene_preference", 
+                    "name": "gene_preference"
+                },
+                {
+                    "newname": "is_marker_gene", 
+                    "name": "is_marker_gene"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_scRNA_preferential_expression.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [ 
+                "gene_symbol",
+                "uniprotkb_ac", 
+                "cell_type", 
+                "do_name",  
+                "doid", 
+                "uberon_anatomical_id",
+                "pem_score",
+                "gene_preference", 
+                "is_marker_gene"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "compiled/human_cancer_scRNA_preferential_expression.csv"
+        }
+    ]
+}

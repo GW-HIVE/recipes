@@ -1,0 +1,171 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "aa_pos_uniprotkb", 
+                    "name": "aa_pos_uniprotkb"
+                }, 
+                {
+                    "newname": "ref_aa", 
+                    "name": "ref_aa"
+                }, 
+                {
+                    "newname": "alt_aa", 
+                    "name": "alt_aa"
+                }, 
+                {
+                    "newname": "dbsnp_freq", 
+                    "name": "dbsnp_freq"
+                }, 
+                {
+                    "newname": "source_freq", 
+                    "name": "source_freq"
+                }, 
+                {
+                    "newname": "polyphen_score", 
+                    "name": "poly_phen_score"
+                }, 
+                {
+                    "newname": "disease_state", 
+                    "name": "disease_state"
+                }, 
+                {
+                    "newname": "data_source", 
+                    "name": "data_source"
+                }, 
+                {
+                    "newname": "tcga_patient_id", 
+                    "name": "tcga_patient_id"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "mut_pmid"
+                }, 
+                {
+                    "newname": "secretion_status", 
+                    "name": "secretion_status"
+                }, 
+                {
+                    "newname": "signal_peptide_evidence_level", 
+                    "name": "signal_peptide_evidence_level"
+                }, 
+                {
+                    "newname": "signal_peptide_position", 
+                    "name": "signal_peptide_position"
+                }, 
+                {
+                    "newname": "prediction_effect", 
+                    "name": "prediction_effect"
+                }, 
+                {
+                    "newname": "backgroud_prediction", 
+                    "name": "backgroud_prediction"
+                }, 
+                {
+                    "newname": "prediction_has_signal_peptide", 
+                    "name": "prediction_has_signal_peptide"
+                }, 
+                {
+                    "newname": "d_score_cutoff", 
+                    "name": "d_score_cutoff"
+                }, 
+                {
+                    "newname": "mutation_d_score", 
+                    "name": "mutation_dscore"
+                }, 
+                {
+                    "newname": "delta_d_score", 
+                    "name": "delta_dscore"
+                }, 
+                {
+                    "newname": "predicted_cleavage_position", 
+                    "name": "predicted_cleavage_position"
+                }, 
+                {
+                    "newname": "uniprotkb_literature", 
+                    "name": "uniprot_literature"
+                }, 
+                {
+                    "newname": "germline_or_somatic", 
+                    "name": "germline_or_somatic"
+                }, 
+                {
+                    "newname": "signal_peptide_aa", 
+                    "name": "signal_peptide_aa"
+                }, 
+                {
+                    "newname": "signal_peptide_cleavage", 
+                    "name": "signal_peptide_cleavage"
+                }, 
+                {
+                    "newname": "consistent_mut", 
+                    "name": "consistent"
+                }, 
+                {
+                    "newname": "signal_peptide_equals_cleavage", 
+                    "name": "signal_peptide_equals_cleavage"
+                }, 
+                {
+                    "newname": "mutation_position_rsid", 
+                    "name": "rsid_mapped_to_accession_mutation_position"
+                }, 
+                {
+                    "newname": "ref_position_rsid", 
+                    "name": "rsid_mapped_to_accession_mutation_position_refaa_mutationaa"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_somatic_and_germline_mutation.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": ",", 
+            "fields": [
+                "uniprotkb_ac",
+                "gene_symbol", 
+                "aa_pos_uniprotkb", 
+                "ref_aa", 
+                "alt_aa", 
+                "dbsnp_freq", 
+                "source_freq", 
+                "poly_phen_score", 
+                "disease_state", 
+                "data_source", 
+                "tcga_patient_id", 
+                "mut_pmid", 
+                "secretion_status", 
+                "signal_peptide_evidence_level", 
+                "signal_peptide_position", 
+                "prediction_effect", 
+                "backgroud_prediction", 
+                "prediction_has_signal_peptide", 
+                "d_score_cutoff", 
+                "mutation_dscore", 
+                "delta_dscore", 
+                "predicted_cleavage_position", 
+                "uniprot_literature", 
+                "germline_or_somatic", 
+                "signal_peptide_aa", 
+                "signal_peptide_cleavage", 
+                "consistent", 
+                "signal_peptide_equals_cleavage", 
+                "rsid_mapped_to_accession_mutation_position", 
+                "rsid_mapped_to_accession_mutation_position_refaa_mutationaa"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/biomuta/current/human_cancer_somatic_and_germline_mutation.csv"
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "biomarker_id", 
+                    "name": "biomarker_id"
+                },  
+                {
+                    "newname": "biomarker_title", 
+                    "name": "biomarker_title"
+                },
+                {
+                    "newname": "test_is_a_panel", 
+                    "name": "is_panel"
+                }, 
+                {
+                    "newname": "qa_state", 
+                    "name": "qa_state"
+                },   
+                {
+                    "newname": "biomarker_type", 
+                    "name": "type"
+                }, 
+                {
+                    "newname": "organ", 
+                    "name": "organ"
+                },
+                {
+                    "newname": "alias", 
+                    "name": "alias"
+                }, 
+                {
+                    "newname": "phase", 
+                    "name": "phase"
+                },  
+                {
+                    "newname": "pmid", 
+                    "name": "pmid"
+                },
+                {
+                    "newname": "biomarker_description", 
+                    "name": "description"
+                }
+            ], 
+            "tableid": 2, 
+            "filepath": "unreviewed/human_cancer_biomarkers_EDRN.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1,
+            "type": "input",
+            "filepath": "downloads/edrn/current/human_cancer_biomarkers_edrn_modified.csv",
+            "separator": "\",\"", 
+            "fields": [
+                "gene_symbol",
+                "biomarker_id",
+                "biomarker_title",
+                "alias",
+                "organ",
+                "description",
+                "is_panel",
+                "phase",
+                "qa_state",
+                "type",
+                "pmid"
+            ] 
+        },
+        {
+            "id": 2,
+            "type": "output",
+            "action":{
+                "name":"expandrows",
+                "expansionfield":"pmid",
+                "expansiondelim": ";"
+            },
+            "inputtables":[1]
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprot_ac"
+                }, 
+                {
+                    "newname": "uniprotkb_canonical_ac",
+                    "name": "uniprotkb_canonical_ac"
+                },
+                {
+                    "newname": "chromosome_id", 
+                    "name": "chr_id"
+                }, 
+                {
+                    "newname": "chromosome_pos", 
+                    "name": "chr_pos"
+                }, 
+                {
+                    "newname": "ref_nt", 
+                    "name": "ref_nt"
+                }, 
+                {
+                    "newname": "alt_nt", 
+                    "name": "alt_nt"
+                }, 
+                {
+                    "newname": "ensembl_transcript_id", 
+                    "name": "transcript_id"
+                }, 
+                {
+                    "newname": "peptide_id", 
+                    "name": "peptide_id"
+                }, 
+                {
+                    "newname": "refseq_ac", 
+                    "name": "refseq_ac"
+                }, 
+                {
+                    "newname": "cds_pos", 
+                    "name": "cds_pos"
+                }, 
+                {
+                    "newname": "peptide_pos", 
+                    "name": "pep_pos"
+                }, 
+                {
+                    "newname": "aa_pos_uniprotkb", 
+                    "name": "uniprot_pos"
+                }, 
+                {
+                    "newname": "ref_aa", 
+                    "name": "ref_aa"
+                }, 
+                {
+                    "newname": "alt_aa", 
+                    "name": "alt_aa"
+                }, 
+                {
+                    "newname": "mutation_freq", 
+                    "name": "mut_freq"
+                }, 
+                {
+                    "newname": "data_source", 
+                    "name": "data_src"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "do_id"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }, 
+                {
+                    "newname": "uberon_anatomical_entity_id", 
+                    "name": "uberon_id"
+                }, 
+                {
+                    "newname": "gene_symbol", 
+                    "name": "gene_name"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "pmid_list"
+                }, 
+                {
+                    "newname": "site_prediction", 
+                    "name": "site_prd"
+                }, 
+                {
+                    "newname": "site_annotation", 
+                    "name": "site_ann"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"uniprotkb_ac",
+            "filepath": "unreviewed/human_cancer_mutation.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "uniprot_ac",
+                "uniprotkb_canonical_ac",
+                "chr_id", 
+                "chr_pos",
+                "ref_nt", 
+                "alt_nt", 
+                "transcript_id", 
+                "peptide_id", 
+                "refseq_ac", 
+                "cds_pos", 
+                "pep_pos", 
+                "uniprot_pos", 
+                "ref_aa", 
+                "alt_aa", 
+                "mut_freq", 
+                "data_src", 
+                "do_id", 
+                "do_name", 
+                "uberon_id", 
+                "gene_name", 
+                "pmid_list", 
+                "site_prd", 
+                "site_ann"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/biomuta/current/biomuta-master-modified.csv"
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "curator_provided_antigen_accession", 
+                    "name": "curator_provided_antigen_accession"
+                }, 
+                {
+                    "newname": "aa_pos_start_antigen", 
+                    "name": "aa_pos_start_antigen"
+                }, 
+                {
+                    "newname": "aa_pos_end_antigen", 
+                    "name": "aa_pos_end_antigen"
+                }, 
+                {
+                    "newname": "antigen_wildtype_peptide", 
+                    "name": "antigen_wildtype_peptide"
+                },
+                {
+                    "newname": "antigen_neoepitope_peptide", 
+                    "name": "antigen_neoepitope_peptide"
+                }, 
+                {
+                    "newname": "iedb_epitope_id", 
+                    "name": "iedb_epitope_id"
+                },
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "doid"
+                },
+                {
+                    "newname": "epitope_type_assay", 
+                    "name": "epitope_type_assay"
+                },
+                {
+                    "newname": "pmid", 
+                    "name": "pmid"
+                }, 
+                {
+                    "newname": "cell_type_derivation", 
+                    "name": "derivation"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_neoepitopes.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "gene_symbol",
+                "uniprotkb_ac",
+                "curator_provided_antigen_accession",
+                "aa_pos_start_antigen",
+                "aa_pos_end_antigen",
+                "antigen_wildtype_peptide",
+                "antigen_neoepitope_peptide",
+                "iedb_epitope_id",
+                "do_name",
+                "doid",
+                "epitope_type_assay",
+                "pmid",
+                "derivation"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "compiled/human_cancer_neoepitopes.csv"
+        }
+    ]
+}

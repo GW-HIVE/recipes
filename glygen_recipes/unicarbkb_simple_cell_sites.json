@@ -1,0 +1,83 @@
+{ 
+	"tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            		"fields": [
+                		"GlyTouCanAccession", 
+                		"Enzyme_UniProtAccession",
+                		"Enzyme_GeneName",
+				"Enzyme_GeneID",
+				"Enzyme_TaxonomyID"
+				],
+            		"filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/enz.tsv"
+		},
+		{
+			"id": 2,
+			"type":"output",
+			"inputtables": [1],
+				"action":{
+					"name":"addconstantfields",
+					"newfields":{
+						"residue_name":"",
+						"residue_id":"",
+						"parent_residue_id":"",
+						"enzyme_type":"",
+						"species":"",
+						"recommended_name_full":""
+					}
+				}
+		
+		}
+	],
+	"outputfiles": [
+        	{
+            		"fields": [
+				{
+					"newname": "glytoucan_ac",
+					"name": "GlyTouCanAccession"
+				},
+				{
+					"newname": "uniprotkb_canonical_ac",
+					"name": "Enzyme_UniProtAccession"
+				},
+				{
+					"newname": "gene_name",
+					"name": "Enzyme_GeneName"
+				},
+				{
+					"newname": "gene_id",
+					"name": "Enzyme_GeneID"
+				},
+				{
+					"newname": "residue_name",
+					"name": "residue_name"
+				},
+				{
+					"newname": "residue_id",
+					"name": "residue_id"
+				},
+				{
+					"newname": "parent_residue_id",
+					"name": "parent_residue_id"
+				},
+				{
+					"newname": "enzyme_type",
+					"name": "enzyme_type"
+				},
+				{
+					"newname": "species",
+					"name": "species"
+				},
+				{
+					"newname": "recommended_name_full",
+					"name": "recommended_name_full"
+				}
+            		], 
+            		"tableid": 2, 
+            		"masterlistfilterfield":"glytoucan_ac",
+            		"filepath": "/software/pipeline/integrator/new_unreviewed/glycan_enzyme.csv"
+        	}
+	]
+}

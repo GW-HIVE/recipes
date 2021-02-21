@@ -1,0 +1,108 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname":"gene_symbol",
+                    "name":"gene_symbol"
+                },
+                {
+                    "newname": "gene_mention",
+                    "name": "Gene Mention"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "UniProtKB/SwissProt AC"
+                }, 
+                {
+                    "newname": "entrez_id", 
+                    "name": "Entrez ID"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "PMID"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "DOID"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "DOID Name"
+                }, 
+                {
+                    "newname": "disease_mention", 
+                    "name": "Disease Mention"
+                }, 
+                {
+                    "newname": "disease_extracted_from", 
+                    "name": "Disease Extracted From"
+                }, 
+                {
+                    "newname": "expression_change", 
+                    "name": "Expression Level"
+                }, 
+                {
+                    "newname": "sentence_type", 
+                    "name": "Sentence Type"
+                }, 
+                {
+                    "newname": "sample_1", 
+                    "name": "Sample 1"
+                }, 
+                {
+                    "newname": "sample_2", 
+                    "name": "Sample 2"
+                }, 
+                {
+                    "newname": "is_same_patient", 
+                    "name": "Is Same Patient"
+                }, 
+                {
+                    "newname": "sentence_text", 
+                    "name": "Sentence Text"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_expression_literature_slim_mapped.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1,
+			"separator": "\",\"", 
+            "fields": [
+                "gene_symbol",
+                "UniProtKB/SwissProt AC", 
+                "Entrez ID", 
+                "Gene Mention", 
+                "PMID", 
+                "DOID", 
+                "DOID Name", 
+                "Disease Mention", 
+                "Disease Extracted From", 
+                "Expression Level", 
+                "Sentence Type", 
+                "Sample 1", 
+                "Sample 2", 
+                "Is Same Patient", 
+                "Sentence Text"
+            ], 
+            "type": "input",  
+            "filepath": "downloads/dexter/current/DEXTER_cancer_gene_output-modified.csv"
+        }
+		{
+            "id": 2,
+			"separator": "\",\"", 
+            "fields": [
+                "Slim",
+                "Top_Level_Organ_system",
+                "Child_Organ_system",
+                "Original Cancer Term"
+            ], 
+            "type": "input",  
+            "filepath": "compiled/slim_disease_term_mapping_master.csv"
+        }
+    ]
+}

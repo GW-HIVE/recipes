@@ -1,0 +1,107 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "pmid"
+                }, 
+                {
+                    "newname": "entrez_id", 
+                    "name": "entrez_id"
+                }, 
+                {
+                    "newname": "gene_mention", 
+                    "name": "gene_mention"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "doid"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }, 
+                {
+                    "newname": "disease_mention", 
+                    "name": "disease_mention"
+                }, 
+                {
+                    "newname": "mutation_mention", 
+                    "name": "mutation_mention"
+                }, 
+                {
+                    "newname": "mutation_type", 
+                    "name": "mutation_type"
+                }, 
+                {
+                    "newname": "abstract_extraction", 
+                    "name": "abstract_extraction"
+                }, 
+                {
+                    "newname": "sentence_number", 
+                    "name": "sentence_number"
+                }, 
+                {
+                    "newname": "sentence_text", 
+                    "name": "sentence_text"
+                }, 
+                {
+                    "newname": "extraction_method", 
+                    "name": "extraction_method"
+                }, 
+                {
+                    "newname": "patient_control_counts", 
+                    "name": "patient_control_counts"
+                }, 
+                {
+                    "newname": "is_meta", 
+                    "name": "is_meta-analysis"
+                }, 
+                {
+                    "newname": "is_review", 
+                    "name": "is_review"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_mutation_literature.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": ",", 
+            "fields": [
+                "uniprotkb_ac", 
+                "pmid", 
+                "gene_symbol", 
+                "entrez_id", 
+                "gene_mention", 
+                "doid", 
+                "do_name", 
+                "disease_mention", 
+                "mutation_mention", 
+                "mutation_type", 
+                "abstract_extraction", 
+                "sentence_number", 
+                "sentence_text", 
+                "extraction_method", 
+                "patient_control_counts", 
+                "is_meta-analysis", 
+                "is_review"
+            ], 
+            "type": "input", 
+            "sizecategory":"regular",
+            "id": 1, 
+            "filepath": "downloads/dimex/current/dimex_output_03_13_2020.csv"
+        }
+    ]
+}

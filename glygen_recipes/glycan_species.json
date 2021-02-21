@@ -1,0 +1,51 @@
+{ 
+    "tablelist": [
+	{
+		"id": 1,
+		"type": "input",
+		"separator": "\t", 
+            	"fields": [
+                	"GlyTouCan AC", 
+                	"Species Name",
+                	"AnnotationCategory", 
+                	"Source",
+			"Source ID",
+			"tax_id"
+            	],
+            	"filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/species_expanded.tsv"
+	}
+    ],
+    "outputfiles": [
+        {
+        	"fields": [
+			{
+				"newname": "glytoucan_ac",
+				"name": "GlyTouCan AC"
+			},
+			{
+				"newname": "tax_id",
+				"name": "tax_id"
+			},
+			{
+				"newname": "tax_name",
+				"name": "Species Name"
+			},
+			{
+				"newname": "annotation_category",
+				"name": "AnnotationCategory"
+			},			
+			{
+				"newname": "source",
+				"name": "Source"
+			},				
+			{
+				"newname": "original_source_id",
+				"name": "Source ID"
+			}
+            	], 
+            	"tableid": 1, 
+            	"masterlistfilterfield":"glytoucan_ac",
+            	"filepath": "/software/pipeline/integrator/new_unreviewed/glycan_species_test.csv"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "ensembl_transcript_id", 
+                    "name": "ensembl_transcript_id"
+                }, 
+                {
+                    "newname": "ref_aa", 
+                    "name": "ref_aa"
+                }, 
+                {
+                    "newname": "peptide_pos", 
+                    "name": "peptide_pos"
+                }, 
+                {
+                    "newname": "alt_aa", 
+                    "name": "alt_aa"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_driver_muts.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "uniprotkb_ac", 
+                "gene_symbol", 
+                "ensembl_transcript_id", 
+                "ref_aa", 
+                "peptide_pos", 
+                "alt_aa"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "compiled/human_cancer_driver_muts.csv"
+        }
+    ]
+}

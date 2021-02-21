@@ -1,0 +1,36 @@
+{ 
+    "tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            "fields": [
+                "GlyTouCanAccession", 
+                "Type",
+                "Subtype"
+            ],
+            "filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/classification.tsv"
+		}
+    ],
+    "outputfiles": [
+        {
+            "fields": [
+			{
+				"newname": "glytoucan_ac",
+				"name": "GlyTouCanAccession"
+			},
+			{
+				"newname": "glycan_type",
+				"name": "Type"
+			},
+			{
+				"newname": "glycan_subtype",
+				"name": "Subtype"
+			}
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"glytoucan_ac",
+            "filepath": "/software/pipeline/integrator/new_unreviewed/glycan_classification.csv"
+        }
+    ]
+}

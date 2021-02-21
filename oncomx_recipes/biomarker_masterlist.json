@@ -1,0 +1,92 @@
+{
+    "tablelist":[
+        {
+            "id":1, 
+            "type":"input",
+            "separator":"\",\"",
+            "filepath":"downloads/biomuta/current/biomuta-master-modified.csv",
+            "fields":[
+                "gene_name","refseq_ac","uniprot_ac"
+            ]
+        },
+        {
+            "id":2,
+            "separator":"\",\"",
+            "type":"input",
+            "filepath":"downloads/bioxpress/current/human_cancer_mRNA_expression.csv",
+            "fields":[
+                "gene_name","refseq_ac","uniprot_ac"
+            ]
+        },
+        {
+            "id":3,
+            "separator":",",
+            "type":"input",
+            "filepath":"downloads/bioxpress/v-2.0/BioXpress_interface_miRNA_final_v2.0.csv",
+            "fields":[
+                "HGNC_symbol","refseq_accession"
+            ]
+        },
+        {
+            "id":4,
+            "type":"output",
+            "action":{
+                "name":"addconstantfields",
+                "newfields":{
+                    "uniprot_ac":""
+                }
+            },
+            "inputtables":[3]
+        },
+        {
+            "id":5,
+            "type":"output",
+            "action":{
+                "name":"union"
+            },
+            "inputtables":[1,2,4]
+        },
+        {
+            "id": 6,
+            "type":"output",
+            "inputtables":[5],
+            "action":{
+                "name":"filterout",
+                "operation":"AND",
+                "conditionlist":[
+                    {
+                        "field":"gene_name",
+                        "value":["", "-"],
+                        "operation":"in"
+                    }
+                ]
+            }
+        },
+        {
+            "id":7,
+            "type":"output",
+            "action":{
+                "name":"addconstantfields",
+                "newfields":{
+                    "tax_id":"9606",
+                    "organism_name":"Homo sapiens"
+                }
+            },
+            "inputtables":[6]
+        }
+    ],
+    "outputfiles":[
+        {
+            "tableid":7,
+            "filepath":"unreviewed/biomarker_masterlist.csv",
+            "fields":[
+                {"name":"gene_name", "newname":"gene_symbol"},
+                {"name":"uniprot_ac", "newname":"uniprotkb_ac"},
+                {"name":"refseq_ac", "newname":"refseq_ac"},
+                {"name":"tax_id", "newname":"tax_id"},
+                {"name":"organism_name", "newname":"tax_name"}
+            ]
+        }
+    ]
+}
+

@@ -1,0 +1,156 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "Gene name"
+                },
+                {
+                    "newname": "uniprotkb_ac",
+                    "name": "uniprotkb_ac"
+                },
+                {
+                    "newname": "uberon_anatomical_id",
+                    "name": "Anatomical entity ID"
+                }, 
+                {
+                    "newname": "uberon_anatomical_name_long", 
+                    "name": "Anatomical entity name"
+                }, 
+                {   
+                    "newname": "uberon_anatomical_name_short",
+                    "name": "uberon_anatomical_entity_name"
+                },
+                {
+                    "newname": "expression_level_anatomical_relative", 
+                    "name": "Expression level relative to anatomical entity"
+                }, 
+                {
+                    "newname": "expression_score", 
+                    "name": "Expression score"
+                }
+            ], 
+            "tableid": 7, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_normal_expression_custom.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1, 
+            "type": "input",
+            "filepath": "downloads/bgee/current/Homo_sapiens_UBERON:0000066_AFFYMETRIX_RNA_SEQ.tsv",
+            "separator": "\t", 
+            "fields": [
+                "Gene name",
+                "Ensembl gene ID", 
+                "Anatomical entity ID", 
+                "Anatomical entity name", 
+                "Developmental stage ID", 
+                "Developmental stage name", 
+                "Expression level relative to gene", 
+                "Expression level relative to anatomical entity", 
+                "Call quality",
+                "Expression rank score",
+		"Expression score"
+            ]
+        },
+        {   
+            "id": 2,
+            "type": "input",
+            "filepath": "unreviewed/biomarker_masterlist.csv",
+            "separator": "\",\"",
+            "fields": [
+                "gene_symbol",
+                "uniprotkb_ac"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "input",
+            "filepath": "compiled/human_cdo_slim_uberon_mapping.csv",
+            "separator": "\",\"",
+            "fields": [
+                "uberon_anatomical_entity_name",
+                "uberon_anatomical_entity_syn"
+            ]
+        },
+        {
+            "id": 4, 
+            "type": "output",
+            "inputtables":[1],
+            "action":{
+                "name":"makecombofield",
+                "fieldlist":[
+                    "Anatomical entity name",
+                    "Developmental stage ID"
+                ],
+                "merge_char":"|",
+                "combofield":"anatomical_entity_name_and_developmental_stage_id"
+            }
+        },
+        {
+    	    "id": 5,
+            "type":"output",
+            "inputtables":[4],
+            "action":{
+                "name":"filterin",
+                "operation":"AND",
+                "conditionlist":[
+                    {
+                        "field":"anatomical_entity_name_and_developmental_stage_id",
+                        "value":[
+                            "lung|HsapDv:0000087",
+                            "liver|HsapDv:0000087",
+                            "thyroid gland|HsapDv:0000087",
+			    "thoracic mammary gland|HsapDv:0000087",
+                            "uterus|HsapDv:0000087", 
+                            "stomach|HsapDv:0000087", 
+                            "prostate gland|HsapDv:0000087", 
+                            "esophagus|HsapDv:0000087", 
+                            "adult mammalian kidney|HsapDv:0000087", 
+                            "urinary bladder|HsapDv:0000087",
+                            "pancreas|HsapDv:0000087",
+                            "uterine cervix|HsapDv:0000092"
+                        ],
+                        "operation":"in"
+                    }
+                ]
+            }
+    	},
+        {
+            "id": 6,
+            "type": "output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["Gene name", "gene_symbol"]
+            },
+            "inputtables":[5,2]
+        },
+        {
+            "id": 7,
+            "type": "output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["Anatomical entity name","uberon_anatomical_entity_syn"]
+            },
+            "inputtables":[6,3]
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

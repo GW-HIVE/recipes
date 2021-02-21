@@ -1,0 +1,26 @@
+{ 
+	"tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+        		"fields": [
+                		"GlyTouCanAccession"
+            		],
+            		"filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/fully_determined.tsv"
+		}
+    	],
+    	"outputfiles": [
+        	{
+            		"fields": [
+				{
+					"newname": "glytoucan_ac",
+					"name": "GlyTouCanAccession"
+				}
+            		], 
+            		"tableid": 1, 
+            		"masterlistfilterfield":"glytoucan_ac",
+            		"filepath": "/software/pipeline/integrator/new_unreviewed/glycan_fully_determined.csv"
+        	}
+    	]
+}

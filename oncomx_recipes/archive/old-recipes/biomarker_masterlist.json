@@ -1,0 +1,72 @@
+{
+    "tablelist":[
+        {
+            "id":1, 
+            "type":"input",
+            "separator":"\",\"",
+            "filepath":"downloads/biomuta/current/biomuta-master-modified.csv",
+            "fields":[
+                "uniprot_ac","refseq_ac","gene_name"
+            ]
+        },
+        {
+            "id":2,
+            "separator":"\",\"",
+            "type":"input",
+            "filepath":"downloads/bioxpress/current/human_cancer_mRNA_expression.csv",
+            "fields":[
+                "uniprot_ac","refseq_ac","gene_name"
+            ]
+        },
+        {
+            "id": 3,
+            "type":"output",
+            "inputtables":[2],
+            "action":{
+                "name":"filterout",
+                "operation":"AND",
+                "conditionlist":[
+                    {
+                        "field":"uniprot_ac",
+                        "value":[""],
+                        "operation":"in"
+                    }
+                ]
+            }
+        },
+        {
+            "id":4,
+            "type":"output",
+            "action":{
+                "name":"union"
+            },
+            "inputtables":[1,3]
+        },
+        {
+            "id":5,
+            "type":"output",
+            "action":{
+                "name":"addconstantfields",
+                "newfields":{
+                    "tax_id":"9606",
+                    "organism_name":"Homo sapiens"
+                }
+            },
+            "inputtables":[4]
+        }
+    ],
+    "outputfiles":[
+        {
+            "tableid":5,
+            "filepath":"unreviewed/biomarker_masterlist.csv",
+            "fields":[
+                {"name":"uniprot_ac", "newname":"uniprotkb_ac"},
+                {"name":"refseq_ac", "newname":"refseq_ac"},
+                {"name":"gene_name", "newname":"gene_symbol"},
+                {"name":"tax_id", "newname":"tax_id"},
+                {"name":"organism_name", "newname":"tax_name"}
+            ]
+        }
+    ]
+}
+

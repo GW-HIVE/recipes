@@ -1,0 +1,61 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "case_id",
+                    "name": "case_id"
+                },
+                {
+                    "newname": "age_at_index", 
+                    "name": "demographic.age_at_index"
+                }, 
+                {
+                    "newname": "gender", 
+                    "name": "demographic.gender"
+                }, 
+                {
+                    "newname": "ethnicity", 
+                    "name": "demographic.ethnicity"
+                }, 
+                {
+                    "newname": "race", 
+                    "name": "demographic.race"
+                }
+            ], 
+            "tableid": 2, 
+            "filepath": "unreviewed/human_normal_metadata.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "", 
+            "fields": [
+                "case_id",
+                "demographic.age_at_index",
+                "demographic.gender",
+                "demographic.ethnicity",
+                "demographic.race"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/bioxpress/current/metadata-normal.json"
+        },
+        {
+            "id": 2,
+            "type":"output",
+            "inputtables":[1],
+            "action":{
+                "name":"filterout",
+                "operation":"AND",
+                "conditionlist":[
+                    {
+                        "field":"demographic.age_at_index",
+                        "value":["", "-"],
+                        "operation":"in"
+                    }
+                ]
+            }
+        }
+    ]
+}

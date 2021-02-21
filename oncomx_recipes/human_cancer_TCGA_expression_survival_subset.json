@@ -1,0 +1,139 @@
+{ 
+	"tablelist": [
+    	{
+			"id": 1,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"ensg_transcript", 
+				"FPKM",
+				"TPM",
+				"file_id", 
+				"file_name",
+				"case_id",
+				"case_submitter_id",
+				"age_at_index",
+				"gender",
+				"vital_status",
+				"days_to_death",
+				"days_to_last_follow_up",
+				"race",
+				"ethnicity",
+				"ensg_id",
+				"ensg_transcript_num",
+				"gene_symbol",
+				"uniprotkb_ac"
+			],
+			"filepath": "downloads/survival_tcga/BRCA/TCGA-BRCA_TPM_Survival_2_subset_2.csv"
+        },	
+		{
+			"id": 2,
+			"type": "output",
+			"inputtables": [1],
+			"action": {
+				"name":"addconstantfields",
+				"newfields":{
+					"tcga_study":"BRCA"
+				}
+			}
+		},
+		{
+			"id": 3,
+			"type": "output",
+			"inputtables": [2],
+			"action": {
+				"name":"filterout",
+				"operation":"AND",
+				"conditionlist":[
+					{
+						"field":"uniprotkb_ac",
+						"value":[""],
+						"operation":"in"
+					}
+				]
+			}
+		},
+		{
+			"id": 4,
+			"type": "output",
+			"inputtables": [2],
+			"action": {
+				"name":"filterin",
+				"operation":"AND",
+				"conditionlist":[
+					{
+						"field":"uniprotkb_ac",
+						"value":[""],
+						"operation":"in"
+					}
+				]
+			}
+		}	
+    ],
+    "outputfiles": [
+        {
+			"tableid": 3, 
+            "masterlistfilterfield":"",
+            "filepath": "unreviewed/human_cancer_TCGA_expression_survival_subset_22_BRCA.csv",
+        	"fields": [
+				{
+					"newname":"uniprotkb_ac",
+					"name":"uniprotkb_ac"
+				},	
+				{
+					"newname":"gene_symbol",
+					"name":"gene_symbol"
+				},			
+				{
+					"newname":"ensg_id",
+					"name":"ensg_id"
+				},
+				{
+					"newname":"TPM",
+					"name":"TPM"
+				},	
+				{
+					"newname": "FPKM",
+					"name": "FPKM"
+				},
+				{
+					"newname": "tcga_patient_id",
+					"name": "case_submitter_id"
+				},
+				{
+					"newname": "gender",
+					"name": "gender"
+				},
+				{
+					"newname": "age",
+					"name": "age_at_index"
+				},
+				{
+					"newname":"race",
+					"name":"race"
+				},
+				{
+					"newname":"ethnicity",
+					"name":"ethnicity"
+				},
+				{
+					"newname":"vital_status",
+					"name":"vital_status"
+				},
+				{
+					"newname":"survival_days",
+					"name":"days_to_death"
+				},
+				{
+					"newname":"days_to_last_follow_up",
+					"name":"days_to_last_follow_up"
+				},
+				{
+					"newname":"tcga_study",
+					"name":"tcga_study"
+				}
+            ]
+      	}
+    ]
+}
+

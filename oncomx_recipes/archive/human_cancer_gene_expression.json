@@ -1,0 +1,95 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "refseq_ac", 
+                    "name": "refseq_ac"
+                }, 
+                {
+                    "newname": "gene_symbol", 
+                    "name": "gene_symbol"
+                }, 
+                {
+                    "newname": "log2fc", 
+                    "name": "log2fc"
+                }, 
+                {
+                    "newname": "p-value", 
+                    "name": "p-value"
+                }, 
+                {
+                    "newname": "adjusted_p-value", 
+                    "name": "adjusted_p-value"
+                }, 
+                {
+                    "newname": "statistical_significance", 
+                    "name": "statistical_significance"
+                }, 
+                {
+                    "newname": "expression_change", 
+                    "name": "expression_change"
+                }, 
+                {
+                    "newname": "subjects_ratio", 
+                    "name": "subjects_ratio"
+                }, 
+                {
+                    "newname": "data_source", 
+                    "name": "data_source"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "pmid"
+                }, 
+                {
+                    "newname": "sample_name", 
+                    "name": "sample_name"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "doid"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }, 
+                {
+                    "newname": "uberon_anatomical_entity_id", 
+                    "name": "uberon_anatomical_entity_id"
+                }
+            ], 
+            "tableid": 1, 
+            "filepath": "unreviewed/human_cancer_gene_expression.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "uniprotkb_ac", 
+                "refseq_ac", 
+                "gene_symbol", 
+                "log2fc", 
+                "p-value", 
+                "adjusted_p-value", 
+                "statistical_significance", 
+                "expression_change", 
+                "subjects_ratio", 
+                "data_source", 
+                "pmid", 
+                "sample_name", 
+                "doid", 
+                "do_name", 
+                "uberon_anatomical_entity_id"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/bioxpress/current/human_cancer_mRNA_expression.csv"
+        }
+    ]
+}

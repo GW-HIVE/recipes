@@ -1,0 +1,51 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "mouse_gene_symbol"
+                },
+                {
+                    "newname": "mouse_ensembl_gene_id", 
+                    "name": "mouse_ensembl_id"
+                },
+		{
+                    "newname": "mouse_uniprotkb_ac",
+                    "name": "mouse_uniprotkb_ac"
+                },
+                {
+                    "newname": "human_ensembl_gene_id", 
+                    "name": "human_ensembl_id"
+                }, 
+                {
+                    "newname": "human_ortholog_symbol", 
+                    "name": "human_gene_symbol"
+                },
+		{
+                    "newname": "human_uniprotkb_ac",
+                    "name": "human_uniprotkb_ac"
+                }
+            ], 
+            "tableid": 1, 
+            "filepath": "unreviewed/mouse_to_human_OMA_mapping.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "mouse_ensembl_id", 
+                "human_ensembl_id", 
+                "mouse_gene_symbol",
+		"human_gene_symbol",
+		"human_uniprotkb_ac",
+		"mouse_uniprotkb_ac"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "compiled/OMA_ensembl_mapping.csv"
+        }
+    ]
+}
+

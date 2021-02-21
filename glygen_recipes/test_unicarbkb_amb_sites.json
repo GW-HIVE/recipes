@@ -1,0 +1,139 @@
+{ 
+	"tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            		"fields": [
+                		"acc", 
+                		"site",
+                		"ambiguous_sites",
+				"amino_acid",
+				"peptide_start",
+				"start_position_aa",
+				"peptide_end",
+				"end_position_aa",
+				"peptide_range",
+				"glycosylation_type",
+				"cellosaurus",
+				"doi",
+				"pmid",
+				"tissue",
+				"species",
+				"cellline"
+				],
+            		"filepath": "/software/pipeline/integrator/downloads/unicarbkb/simple_cell_ambiguous_sites/unicarbkb_simple_cell_ambiguous_sites.tsv"
+		},
+		{
+			"id": 2,
+			"type": "input",
+			"separator": "\",\"", 
+            		"fields": [
+				"uniprotkb_canonical_ac",
+				"gene_name"
+			],
+            		"filepath": "/data/projects/glygen/generated/datasets/reviewed/human_protein_masterlist.csv"
+		},
+		{
+			"id":3,
+			"inputtables":[1],
+			"type":"output",
+				"action":{
+					"name":"addconstantfields",
+					"newfields":{
+						"peptide":"peptide",
+						"peptide_start_aa":"a",
+						"peptide_end_aa":"b"
+						}
+				}
+		},
+		{
+			"id":4,
+			"inputtables":[3,2],
+			"type":"output",
+				"action":{
+					"name":"jointables",
+					"anchorfields":["acc","gene_name"]
+				}
+		}	
+	],
+	"outputfiles": [
+        	{
+            		"fields": [
+				{
+					"newname": "gene_name",
+					"name": "acc"
+				},
+				{
+					"newname": "uniprotkb_canonical_ac",
+					"name": "uniprotkb_canonical_ac"
+				},
+								
+				{
+					"newname": "site",
+					"name": "site"
+				},
+				{
+					"newname": "ambiguous_sites",
+					"name": "ambiguous_sites"
+				},
+				{
+					"newname": "amino_acid",
+					"name": "amino_acid"
+				},
+				{
+					"newname": "peptide_start",
+					"name": "peptide_start"
+				},
+				{
+					"newname": "peptide_start_aa",
+					"name": "peptide_start_aa"
+				},
+
+				{
+					"newname": "peptide_end",
+					"name": "peptide_end"
+				},
+				{
+					"newname":"peptide_end_aa",
+					"name":"peptide_end_aa"
+				},
+				{
+					"newname":"peptide",
+					"name":"peptide"
+				},
+				{
+					"newname": "glycosylation_type",
+					"name": "glycosylation_type"
+				},
+				{
+					"newname": "cellosaurus",
+					"name": "cellosaurus"
+				},
+				{
+					"newname": "doi",
+					"name": "doi"
+				},
+				{
+					"newname": "pmid",
+					"name": "pmid"
+				},
+				{
+					"newname": "tissue",
+					"name": "tissue"
+				},
+				{
+					"newname": "species",
+					"name": "species"
+				},
+				{
+					"newname": "cellline",
+					"name": "cellline"
+				}
+            		], 
+            		"tableid": 4, 
+            		"masterlistfilterfield":"",
+            		"filepath": "/software/pipeline/integrator/new_unreviewed/unicarbkb_aa_datasets/test_unicarbkb_amb_sites.csv"
+        	}
+	]
+}

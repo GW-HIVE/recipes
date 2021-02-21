@@ -1,0 +1,392 @@
+{ 
+	"tablelist": [
+    	{
+			"id": 1,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],
+			"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_black_brca.csv"
+        },
+		{
+			"id": 2,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],
+				"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_black_coad.csv"
+        },
+		{
+			"id": 3,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],	
+			"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_black_kirp.csv"
+        },
+		{
+			"id": 4,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],
+			"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_black_luad.csv"
+        },
+		{
+			"id": 5,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+            ],
+            "filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_black_ucec.csv"
+        },
+		{
+			"id": 6,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],
+			"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_white_brca.csv"
+        },
+		{
+			"id": 7,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],
+			"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_white_coad.csv"
+        },
+		{
+			"id": 8,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],	
+			"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_white_kirp.csv"
+        },
+		{
+			"id": 9,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+			],
+			"filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_white_luad.csv"
+        },
+		{
+			"id": 10,
+			"type": "input",
+			"separator": ",", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"fe_id",
+				"fe_id2",
+				"fe_type",
+				"hits"
+            ],
+            "filepath": "downloads/functional_elements/functional_elements_list_by_cancer_race/fe_output_white_ucec.csv"
+        },
+		{
+			"id": 11,
+			"type": "input",
+			"separator": "\",\"", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"gene_symbol",
+				"uniprotkb_ac",
+				"refseq_ac",
+				"fe_info",
+				"fe_type",
+				"hits",
+				"race"
+            ],
+            "filepath": "unreviewed/human_cancer_functional_elements_list_by_race_TFBS.csv"
+        },		
+		{
+			"id": 12,
+			"type": "input",
+			"separator": "\",\"", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"gene_symbol",
+				"uniprotkb_ac",
+				"refseq_ac",
+				"fe_info",
+				"fe_type",
+				"hits",
+				"race"
+            ],
+            "filepath": "unreviewed/human_cancer_functional_elements_list_by_race_exon.csv"
+        },
+		{
+			"id": 13,
+			"type": "input",
+			"separator": "\",\"", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"gene_symbol",
+				"uniprotkb_ac",
+				"refseq_ac",
+				"fe_info",
+				"fe_type",
+				"hits",
+				"race"
+            ],
+            "filepath": "unreviewed/human_cancer_functional_elements_list_by_race_lncRNA.csv"
+        },
+		{
+			"id": 14,
+			"type": "input",
+			"separator": "\",\"", 
+			"fields": [
+				"chromosome", 
+				"start",
+				"end", 
+				"cancer",
+				"gene_symbol",
+				"uniprotkb_ac",
+				"refseq_ac",
+				"fe_info",
+				"fe_type",
+				"hits",
+				"race"
+            ],
+            "filepath": "unreviewed/human_cancer_functional_elements_list_by_race_miRNAtarget.csv"
+        },	
+		{
+			"id": 15,
+			"type": "output",
+			"inputtables": [1,2,3,4,5], 
+			"action": {
+				"name":"union"
+			}
+		},
+		{
+			"id": 16,
+			"type": "output",
+			"inputtables": [15], 
+			"action":{
+				"name":"addconstantfields",
+				"newfields":{
+					"race":"black"
+				}
+			}
+		}, 
+		{
+			"id": 17,
+			"type": "output",
+			"inputtables": [6,7,8,9,10], 
+			"action": {
+				"name":"union"
+		}
+		},
+		{	
+			"id": 18,
+			"type": "output",
+			"inputtables": [17], 
+			"action":{
+				"name":"addconstantfields",
+				"newfields":{
+					"race":"white"
+				}
+			}
+		},
+		{
+			"id": 19,
+			"type": "output",
+			"inputtables": [16,18], 
+				"action": {
+				"name":"union"
+			}
+		},
+		{
+			"id": 20,
+			"type": "output",
+			"inputtables": [19],
+			"action": {
+				"name":"filterout",
+				"operation":"AND",
+				"conditionlist":[
+					{
+						"field":"fe_type",
+						"value":["lncRNA", "exon", "Transcription Factor Binding Site", "microRNA target site"],
+						"operation":"in"
+					}
+				]
+			}
+		},
+		{	
+			"id": 21,
+			"type": "output",
+			"inputtables": [20], 
+			"action":{
+				"name":"addconstantfields",
+				"newfields":{
+					"gene_symbol":"",
+					"uniprotkb_ac":"",
+					"refseq_ac":""
+				}
+			}
+		},
+		{
+			"id": 22,
+			"type": "output",
+			"inputtables":[21],
+			"action":{
+				"name":"makecombofield",
+				"fieldlist":[
+					"fe_id",
+					"fe_id2"
+				],
+				"merge_char":"-",
+				"combofield":"fe_info"
+			}
+		},
+		{
+			"id": 23,
+			"type": "output",
+			"inputtables": [11,12,13,14,22], 
+			"action": {
+				"name":"union"
+			}
+		}
+
+    ],
+    "outputfiles": [
+        {
+			"tableid": 23, 
+            "masterlistfilterfield":"",
+            "filepath": "unreviewed/human_cancer_functional_elements_list_by_race.csv",
+        	"fields": [
+				{
+					"newname":"gene_symbol",
+					"name":"gene_symbol"
+				},			
+				{
+					"newname":"uniprotkb_ac",
+					"name":"uniprotkb_ac"
+				},
+				{
+					"newname": "refseq_ac",
+					"name": "refseq_ac"
+				},
+				{
+					"newname": "chromosome_id",
+					"name": "chromosome"
+				},
+				{
+					"newname": "chromosome_start",
+					"name": "start"
+				},
+				{
+					"newname": "chromosome_end",
+					"name": "end"
+				},
+				{
+					"newname": "cancer",
+					"name": "cancer"
+				},
+				{
+					"newname":"fe_info",
+					"name":"fe_info"
+				},
+				{
+					"newname":"site",
+					"name":"fe_type"
+				},
+				{
+					"newname":"hits",
+					"name":"hits"
+				},
+				{
+					"newname":"race",
+					"name":"race"
+				}
+            ]
+      	}
+    ]
+}
+

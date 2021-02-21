@@ -1,0 +1,31 @@
+{ 
+    "tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            "fields": [
+                "GlyTouCanAccession", 
+                "Byonic"
+            ],
+            "filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/type_n_linked_byonic.tsv"
+		}
+    ],
+    "outputfiles": [
+        {
+            "fields": [
+			{
+				"newname": "glytoucan_ac",
+				"name": "GlyTouCanAccession"
+			},
+			{
+				"newname": "byonic",
+				"name": "Byonic"
+			}
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"glytoucan_ac",
+            "filepath": "/software/pipeline/integrator/new_unreviewed/glycan_type_n_linked_byonic.csv"
+        }
+    ]
+}

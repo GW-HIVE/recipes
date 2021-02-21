@@ -1,0 +1,122 @@
+{ 
+	"tablelist": [
+    	{
+			"id": 1,
+			"type": "input",
+			"separator": "\",\"", 
+			"fields": [ 
+				"uniprotkb_ac",
+				"gene_symbol",
+				"ensg_id",
+				"TPM",	
+				"FPKM",
+				"tcga_patient_id",
+				"gender",
+				"age",
+				"race",
+				"ethnicity",
+				"vital_status",
+				"days_to_last_follow_up",	
+				"survival_days",
+				"tcga_study"
+			],
+			"filepath": "unreviewed/human_cancer_TCGA_expression_survival_subset_1_BRCA.csv"
+        },
+		{
+			"id": 2,
+			"type": "input",
+			"separator": "\",\"", 
+			"fields": [ 
+				"uniprotkb_ac",
+				"gene_symbol",
+				"ensg_id",
+				"TPM",	
+				"FPKM",
+				"tcga_patient_id",
+				"gender",
+				"age",
+				"race",
+				"ethnicity",
+				"vital_status",
+				"days_to_last_follow_up",	
+				"survival_days",
+				"tcga_study"
+			],
+			"filepath": "unreviewed/human_cancer_TCGA_expression_survival_subset_2_BRCA.csv"
+        },
+		{
+			"id": 3,
+			"type": "output",
+			"inputtables": [1,2],
+			"action": {
+				"name":"union"
+			}
+		}	
+    ],
+    "outputfiles": [
+        {
+			"tableid": 3, 
+            "masterlistfilterfield":"",
+            "filepath": "unreviewed/human_cancer_TCGA_expression_survival_BRCA.csv",
+        	"fields": [
+				{
+					"newname":"uniprotkb_ac",
+					"name":"uniprotkb_ac"
+				},	
+				{
+					"newname":"gene_symbol",
+					"name":"gene_symbol"
+				},			
+				{
+					"newname":"ensg_id",
+					"name":"ensg_id"
+				},
+				{
+					"newname":"TPM",
+					"name":"TPM"
+				},	
+				{
+					"newname": "FPKM",
+					"name": "FPKM"
+				},
+				{
+					"newname": "tcga_patient_id",
+					"name": "tcga_patient_id"
+				},
+				{
+					"newname": "gender",
+					"name": "gender"
+				},
+				{
+					"newname": "age",
+					"name": "age"
+				},
+				{
+					"newname":"race",
+					"name":"race"
+				},
+				{
+					"newname":"ethnicity",
+					"name":"ethnicity"
+				},
+				{
+					"newname":"vital_status",
+					"name":"vital_status"
+				},
+				{
+					"newname":"survival_days",
+					"name":"survival_days"
+				},
+				{
+					"newname":"days_to_last_follow_up",
+					"name":"days_to_last_follow_up"
+				},
+				{
+					"newname":"tcga_study",
+					"name":"tcga_study"
+				}
+            ]
+      	}
+    ]
+}
+

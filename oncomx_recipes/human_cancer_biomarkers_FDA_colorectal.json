@@ -1,0 +1,151 @@
+{
+    "outputfiles": [
+        {
+            "tableid": 1,
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_biomarkers_FDA_colorectal.csv",
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprotkb_ac"
+                }, 
+                {
+                    "newname": "test_disease_use", 
+                    "name": "test_disease_use"
+                }, 
+                {
+                    "newname": "test_trade_name", 
+                    "name": "test_trade_name"
+                }, 
+                {
+                    "newname": "test_manufacturer", 
+                    "name": "test_manufacturer"
+                }, 
+                {
+                    "newname": "test_submission", 
+                    "name": "test_submission"
+                }, 
+                {
+                    "newname": "test_is_a_panel", 
+                    "name": "test_is_a_panel"
+                }, 
+                {
+                    "newname": "biomarker_id", 
+                    "name": "biomarker_id"
+                }, 
+                {
+                    "newname": "biomarker_origin", 
+                    "name": "biomarker_origin"
+                }, 
+                {
+                    "newname": "ncit_biomarker", 
+                    "name": "ncit_biomarker"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "doid"
+                }, 
+                {
+                    "newname": "histological_type", 
+                    "name": "histological_type"
+                }, 
+                {
+                    "newname": "approved_indication", 
+                    "name": "approved_indication"
+                }, 
+                {
+                    "newname": "actual_use", 
+                    "name": "actual_use"
+                }, 
+                {
+                    "newname": "specimen_type", 
+                    "name": "specimen_type"
+                }, 
+                {
+                    "newname": "platform_method", 
+                    "name": "method"
+                }, 
+                {
+                    "newname": "test_number_genes", 
+                    "name": "test_number_genes"
+                }, 
+                {
+                    "newname": "test_adoption_evidence", 
+                    "name": "test_adoption_evidence"
+                }, 
+                {
+                    "newname": "test_trial_id", 
+                    "name": "test_clin_trial_id"
+                }, 
+                {
+                    "newname": "test_approval_status", 
+                    "name": "test_reg_approval_status"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "pmid"
+                }, 
+                {
+                    "newname": "test_study_design", 
+                    "name": "test_study_design"
+                }, 
+                {
+                    "newname": "clinical_significance", 
+                    "name": "clinical_significance"
+                }, 
+                {
+                    "newname": "biomarker_drug", 
+                    "name": "drug"
+                }, 
+                {
+                    "newname": "biomarker_description", 
+                    "name": "description"
+                }
+            ]
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1,
+            "type": "input",
+            "filepath": "compiled/fda_biomarkers/current/human_cancer_biomarkers_colorectal.csv",
+            "separator": "\",\"", 
+            "fields": [
+                "uniprotkb_ac",
+                "gene_symbol",
+                "test_disease_use", 
+                "test_trade_name", 
+                "test_manufacturer", 
+                "test_submission", 
+                "test_is_a_panel", 
+                "biomarker_id", 
+                "biomarker_origin", 
+                "ncit_biomarker", 
+                "do_name", 
+                "doid", 
+                "histological_type", 
+                "approved_indication", 
+                "actual_use", 
+                "specimen_type", 
+                "method", 
+                "test_number_genes", 
+                "test_adoption_evidence", 
+                "test_clin_trial_id", 
+                "test_reg_approval_status", 
+                "pmid", 
+                "test_study_design", 
+                "clinical_significance", 
+                "drug", 
+                "description"
+            ]
+        }
+    ]
+}

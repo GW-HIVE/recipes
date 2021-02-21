@@ -1,0 +1,208 @@
+{
+    "outputfiles": [
+        {
+            "tableid": 17,
+            "filepath": "unreviewed/human_cancer_glycotyper.csv",
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_symbol"
+                },
+                {
+                    "newname": "protein_name",
+                    "name": "protein_name"
+                },
+                {
+                    "newname": "patient_id",
+                    "name": "patient_id"
+                },
+                {
+                    "newname": "patient_group",
+                    "name": "patient_group"
+                },
+                {   
+                    "newname": "glycan_composition",
+                    "name": "glycan_composition"
+                },
+                {   
+                    "newname": "mz_value",
+                    "name": "mz_value"
+                },
+                {
+                    "newname": "intensity",
+                    "name": "intensity"
+                },
+                {
+                    "newname": "normalized_intensity",
+                    "name": "normalized_intensity"
+                },
+                {
+                    "newname": "average_normalized_intensity",
+                    "name": "average_normalized_intensity"
+                },
+                {
+                    "newname": "glytoucan_ac",
+                    "name": "glytoucan_ac"
+                }
+            ]
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1,
+            "type": "input",
+            "separator": ",", 
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycotyper_AGP.csv"
+        },
+        {
+            "id": 2,
+            "type": "input",
+            "separator": ",",
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycotyper_Hemo.csv"
+        },
+        {
+            "id": 3,
+            "type": "input",
+            "separator": ",",
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycotyper_Trans.csv"
+        },
+        {
+            "id": 4,
+            "type": "input",
+            "separator": ",",
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycotyper_LMWK.csv"
+        },
+        {
+            "id": 5,
+            "type": "input",
+            "separator": ",",
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycotyper_IgG.csv"
+        },
+        {   
+            "id": 6,
+            "type": "input",
+            "separator": ",",
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycotyper_Hapto.csv"
+        }, 
+        {   
+            "id": 7,
+            "type": "input",
+            "separator": ",",
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycotyper_A1AT.csv"
+        }, 
+        {   
+            "id": 8,
+            "type": "input",
+            "separator": "\",\"",
+            "fields":[],
+            "filepath": "compiled/glycotyper/current/glycan_structure_mapfile.csv"
+        },    
+        {
+            "id":9,
+            "type":"output",
+            "action":{
+                "name":"union"
+            },
+            "inputtables":[1,2,3,4,5,6,7]
+        },
+        {
+            "id":10,
+            "type":"output",
+            "action":{
+                "name":"transposecols",
+                "startcolidx":3,
+                "newfieldone":"glycan_id",
+                "newfieldtwo":"intensity"
+            },
+            "inputtables":[9]
+        },
+        {
+            "id":11,
+            "type":"output",
+            "action":{
+                "name":"addnormalizedcol",
+                "field":"intensity",
+                "newfield":"normalized_intensity",
+                "anchorfields":["gene_symbol", "patient_id"]
+            },
+            "inputtables":[10]
+        },
+        {
+            "id":12,
+            "type":"output",
+            "action":{
+                "name":"addaveragecol",
+                "field":"normalized_intensity",
+                "newfield":"average_normalized_intensity",
+                "anchorfields":["gene_symbol", "patient_group", "glycan_id"]
+            },
+            "inputtables":[11]
+        },
+        {
+            "id":13,
+            "type":"output",
+            "action":{
+                "name":"splitcol",
+                "field":"patient_id",
+                "newfields":["patient_id", "protein_name"],
+                "delim":"|"
+            },
+            "inputtables":[12]
+        },
+        {   
+            "id":14,
+            "type":"output",
+            "action":{
+                "name":"splitcol",
+                "field":"glycan_id",
+                "newfields":["old_glycan_composition", "mz_value"],
+                "delim":"|"
+            },
+            "inputtables":[13]
+        },
+        {
+            "id": 15,
+            "type": "output",
+            "inputtables":[14],
+            "action":{
+                "name":"makecombofield",
+                "fieldlist":[
+                    "old_glycan_composition",
+                    "mz_value"
+                ],
+                "merge_char":"|",
+                "combofield":"old_glycan_composition_and_mz_value"
+            }
+        },
+        {
+            "id": 16,
+            "type": "output",
+            "inputtables":[8],
+            "action":{
+                "name":"makecombofield",
+                "fieldlist":[
+                    "old_glycan_composition",
+                    "mz_value"
+                ],
+                "merge_char":"|",
+                "combofield":"old_glycan_composition_and_mz_value"
+            }
+        },
+        {
+            "id": 17,
+            "type": "output",
+            "action":{
+                "name":"jointables",
+                "anchorfields":["old_glycan_composition_and_mz_value", "old_glycan_composition_and_mz_value"]
+            },
+            "inputtables":[15,16]
+        }
+    ]
+}

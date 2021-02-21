@@ -1,0 +1,106 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "gene_name"
+                },
+                {
+                    "newname": "uniprotkb_ac", 
+                    "name": "uniprot_ac"
+                }, 
+                {
+                    "newname": "chromosome_id", 
+                    "name": "chromosome_id"
+                }, 
+                {
+                    "newname": "chromosome_pos", 
+                    "name": "chromosome_pos"
+                }, 
+                {
+                    "newname": "ref_nt", 
+                    "name": "ref_nt"
+                }, 
+                {
+                    "newname": "alt_nt", 
+                    "name": "alt_nt"
+                }, 
+                {
+                    "newname": "mut_xref_id", 
+                    "name": "mut_xref_id"
+                }, 
+                {
+                    "newname": "aa_pos_uniprotkb", 
+                    "name": "aa_pos_uniprotkb"
+                }, 
+                {
+                    "newname": "ref_aa", 
+                    "name": "ref_aa"
+                }, 
+                {
+                    "newname": "alt_aa", 
+                    "name": "alt_aa"
+                }, 
+                {
+                    "newname": "reported_cancer_type", 
+                    "name": "cancer_type"
+                }, 
+                {
+                    "newname": "patients_positive", 
+                    "name": "patients_positive"
+                }, 
+                {
+                    "newname": "patients_tested", 
+                    "name": "patients_tested"
+                }, 
+                {
+                    "newname": "mutation_freq", 
+                    "name": "mutation_freq"
+                }, 
+                {
+                    "newname": "data_source", 
+                    "name": "data_source"
+                }, 
+                {
+                    "newname": "doid", 
+                    "name": "doid"
+                }, 
+                {
+                    "newname": "do_name", 
+                    "name": "do_name"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_mutation_mapped_biomuta.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "uniprot_ac", 
+                "gene_name",
+                "chromosome_id", 
+                "chromosome_pos", 
+                "ref_nt", 
+                "alt_nt", 
+                "mut_xref_id", 
+                "aa_pos_uniprotkb", 
+                "ref_aa", 
+                "alt_aa", 
+                "cancer_type", 
+                "patients_positive", 
+                "patients_tested", 
+                "mutation_freq", 
+                "data_source", 
+                "doid", 
+                "do_name"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/biomuta/current/human_mutation_mapped_biomuta-modified.csv"
+        }
+    ]
+}

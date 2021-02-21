@@ -1,0 +1,36 @@
+{ 
+    "tablelist": [
+		{
+			"id": 1,
+			"type": "input",
+			"separator": "\t", 
+            "fields": [
+                "GlyTouCanAccession", 
+                "Relationship",
+                "RelatedAccession"
+            ],
+            "filepath": "/software/pipeline/integrator/downloads/glytoucan/current/export/subsumption.tsv"
+		}
+    ],
+    "outputfiles": [
+        {
+            "fields": [
+			{
+				"newname": "glytoucan_ac",
+				"name": "GlyTouCanAccession"
+			},
+			{
+				"newname": "relationship",
+				"name": "Relationship"
+			},
+			{
+				"newname": "related_accession",
+				"name": "RelatedAccession"
+			}
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"glytoucan_ac",
+            "filepath": "/software/pipeline/integrator/new_unreviewed/glycan_subsumption.csv"
+        }
+    ]
+}

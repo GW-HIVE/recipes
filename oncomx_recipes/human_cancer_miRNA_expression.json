@@ -1,0 +1,102 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol", 
+                    "name": "HGNC_symbol"
+                }, 
+                {
+                    "newname": "ensembl_gene_id", 
+                    "name": "Ensembl_gene_AC"
+                }, 
+                {
+                    "newname": "refseq_ac", 
+                    "name": "refseq_accession"
+                }, 
+                {
+                    "newname": "mirbase_acc", 
+                    "name": "miRBase_ACC"
+                }, 
+                {
+                    "newname": "adjpvalue",
+                    "name": "alias_symbol"
+                }, 
+                {
+                    "newname": "log2fc", 
+                    "name": "DESeq_log2FC"
+                }, 
+                {
+                    "newname": "pvalue", 
+                    "name": "DESeq_pvalue"
+                },
+                {
+                    "newname": "adjpvalue",   
+                    "name": "DESeq_padj"
+                },
+                {
+                    "newname": "statistical_significance",   
+                    "name": "DESeq_sig"
+                },
+                {
+                    "newname": "expression_change_direction",   
+                    "name": "Trend"
+                },
+                {
+                    "newname": "tcga_cancer_type",   
+                    "name": "TCGA_cancer_type"
+                },
+                {
+                    "newname": "do_name", 
+                    "name": "Cancer_type"
+                }, 
+                {
+                    "newname": "subjects_ratio", 
+                    "name": "#Patients"
+                }, 
+                {
+                    "newname": "data_source", 
+                    "name": "Source"
+                }, 
+                {
+                    "newname": "pmid", 
+                    "name": "PMID"
+                }, 
+                {
+                    "newname": "uberon_anatomical_id", 
+                    "name": "UBERON_ID"
+                }
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/human_cancer_miRNA_expression.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": ",", 
+            "fields": [
+                "Index",
+                "HGNC_symbol",
+                "Ensembl_gene_AC",
+                "refseq_accession",
+                "miRBase_ACC",
+                "alias_symbol",
+                "DESeq_log2FC",
+                "DESeq_pvalue",
+                "DESeq_padj",
+                "DESeq_sig",
+                "Trend",
+                "TCGA_cancer_type",
+                "Cancer_type",
+                "#Patients",
+                "Source",
+                "PMID",
+                "UBERON_ID"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "downloads/bioxpress/v-2.0/BioXpress_interface_miRNA_final_v2.0.csv"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "do_full", 
+                    "name": "do_full"
+                }, 
+                {
+                    "newname": "uberon_anatomical_entity_id", 
+                    "name": "uberon_anatomical_entity_id"
+                }, 
+                {
+                    "newname": "uberon_anatomical_entity_name", 
+                    "name": "uberon_anatomical_entity_name"
+                }
+            ], 
+            "tableid": 1, 
+            "filepath": "unreviewed/human_cdo_slim_uberon_mapping.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "separator": "\",\"", 
+            "fields": [
+                "do_full", 
+                "uberon_anatomical_entity_id", 
+                "uberon_anatomical_entity_name"
+            ], 
+            "type": "input", 
+            "id": 1, 
+            "filepath": "compiled/human_cdo_slim_uberon_mapping.csv"
+        }
+    ]
+}

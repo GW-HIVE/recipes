@@ -1,0 +1,209 @@
+{
+    "outputfiles": [
+        {
+            "fields": [
+                {
+                    "newname": "gene_symbol",
+                    "name": "Gene Symbol"
+                },
+		{
+                    "newname": "uniprot_ac",
+                    "name": "Uniprot AC"
+                },
+		{
+                    "newname": "chr_num",
+                    "name": "Chr Num"
+                },
+		{
+                    "newname": "chr_pos",
+                    "name": "Chr Pos"
+                },
+		{
+		    "newname":"exac_alt_freq",
+		    "name":"EXAC Alt Frequency"
+		},
+		{
+		    "newname":"1000g_alt_freq",
+		    "name":"1000 Genomes Alt Frequency"
+		},
+		{
+		    "newname":"ref|alt",
+		    "name":"Ref|Alt"
+		}
+		
+            ], 
+            "tableid": 1, 
+            "masterlistfilterfield":"gene_symbol",
+            "filepath": "unreviewed/test/example_dataset_union.csv"
+        }
+    ], 
+    "tablelist": [
+        {
+            "id": 1,
+	    "type": "input",
+	    "separator": "\",\"", 
+            "fields": [
+                "Uniprot AC",
+                "Chr Num", 
+                "Chr Pos",
+                "Ref NT", 
+                "Alt NT",
+		"EXAC Alt Frequency",
+		"1000 Genomes Alt Frequency" 
+            ],
+            "filepath": "downloads/test/example_mutations_1.csv"
+        },
+        {                                                      	
+            "id": 2,
+            "type": "input",
+            "separator": "\",\"", 
+            "fields": [
+                "Uniprot AC",
+                "Chr Num", 
+                "Chr Pos",
+                "Ref NT", 
+                "Alt NT",
+      	    "EXAC Alt Frequency",
+      	    "1000 Genomes Alt Frequency" 
+            ],
+            "filepath": "downloads/test/example_mutations_2.csv"
+	},
+	{
+	    "id": 3,
+	    "type": "input",
+            "separator": "\",\"", 
+            "fields": [
+                "Uniprot Accession",
+                "Gene Symbol" 
+            ],  
+            "filepath": "downloads/test/example_mapping.csv"
+        },
+	{
+	    "id": 4,
+	    "type": "output",  
+	    "inputtables":[1,2],
+	    "action":{
+		"name":"union"
+            } 
+        },
+	{
+	    "id": 5,
+	    "type": "output",  
+	    "inputtables":[4],
+	    "action":{
+		"name":"addconstantfield",
+		"newfields":{
+		    "source":"UCSC_GB"
+           	 }
+	    } 
+        },
+	{
+	    "id": 6,
+	    "type": "output",  
+	    "inputtables":[5],
+	    "action":{
+		"name":"makecombofield",
+		"fieldlist":[
+		    "Ref NT",
+		    "Alt NT"
+		],
+		"merge_char":"|",
+		"combofield":"Ref|Alt"
+	},
+	{
+	    "id": 7,
+	    "type": "output",  
+	    "inputtables":[6],
+	    "action":{
+		"name":"filterin",
+		"operation":"AND",
+		"field":"Chr Num",
+		"value":[
+		    "1",
+		    "2",
+		    "3",
+		    "4"
+		],
+		"operation":"in" 
+	    }
+	},
+	{
+	    "id": 8,
+	    "type": "output",  
+	    "inputtables":[6],
+	    "action":{
+		"name":"filterout",
+		"operation":"AND",
+		"field":"Chr Num",
+		"value":[
+		    "X",
+		    "Y"
+		],
+		"operation":"in"
+	},
+	{
+	    "id": 9,
+	    "type": "output",  
+	    "inputtables":[6],
+	    "action":{                                             	
+		"name":"expandrows",                                  
+		"expansionfield":"Ref|Alt",
+		"expansiondelim":"|",
+	    } 
+	},
+	{
+	    "id": 10,
+	    "type": "output",  
+	    "inputtables":[6],
+	    "action":{                                            
+		"name":"transposecols",                              
+		"startcolidx":1,
+		"newfieldone":"transpose_1",
+		"newfieldtwo":"transpose_2"
+		}
+	},
+	{
+	    "id": 11,
+	    "type": "output",  
+	    "inputtables":[6],
+	    "action":{                                            
+		"name":"addnormalizedcol",                              
+		"field":"EXAC Alt Frequency",
+		"newfield":"normalized EXAC freq",
+		"anchorfields":["Uniprot AC"]
+	    }
+	},
+	{
+	    "id": 12,
+	    "type": "output",  
+	    "inputtables":[6],
+	    "action":{                                            
+		"name":"addaveragecol",
+		"field":"EXAC Alt Frequency",
+		"newfield":"average EXAC freq",                              
+		"anchorfields":["Uniprot AC"]
+	    }
+	},
+	{
+	    "id": 13,
+	    "type": "output",  
+	    "inputtables":[6],
+	    "action":{                                            
+		"name":"splitcol",
+		"field":"Ref|Alt",
+		"newfields":["Reference","Alternative"],                              
+		"delim":"|"
+	    }
+	},
+	{
+	    "id": 14,
+	    "type": "output",  
+	    "inputtables":[6,3],
+	    "action":{                                            
+		"name":"jointables",                              
+		"anchorfields":["Uniprot AC", "Uniprot Accession"]
+	    }
+	}
+    ]
+}
+
