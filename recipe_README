@@ -22,7 +22,7 @@ Recipe files are used to describe the actions that the script "make-datasets.py"
 
 Recipe files are in ".json" format. For more information on the ".json" format, go to www.json.org
 
-The recipe consists of two major sections "outputfiles" and "tablelist". 
+The recipe consists of two major sections: "outputfiles" and "tablelist". 
 
 Put simply, in "tablelist" you will create tables from the list of "actions" that can be performed. 
 
