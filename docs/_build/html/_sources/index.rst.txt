@@ -19,7 +19,6 @@ Welcome to recipes's documentation!
 
 
 
-
 Indices and tables
 ==================
 
