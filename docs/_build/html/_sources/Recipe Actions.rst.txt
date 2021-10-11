@@ -2,6 +2,7 @@ Recipe Actions
 ==============
 
 .. toctree::
+    :maxdepth: 3
     :caption: Full list of actions:
     union
     addconstantfield
@@ -21,8 +22,10 @@ Summary
 ^^^^^^^^
 Merge multiple tables and remove duplicate lines.
 
-Format::
-^^^^^^^^
+Format
+^^^^^^^
+Output Format::
+
     {
         "id":#,
         "type":"output",
@@ -47,8 +50,9 @@ Summary
 
 Add a new field to the table that has the same constant entry for each line.
 
-Format::
-^^^^^^^^
+Format
+^^^^^^
+Output Format::
 
     {
         "id":#,
@@ -76,8 +80,9 @@ Summary
 
 Combine two fields into one field. 
 
-Format::
-^^^^^^^^
+Format
+^^^^^^
+Output Format::
 
     {
         "id":#,
@@ -115,8 +120,9 @@ Filter only certain lines from one table into another.
 
 Needs review from Robel.
 
-Format::
-^^^^^^^^
+Format
+^^^^^^
+Output Format::
 
     {
         "id":#,
@@ -156,8 +162,9 @@ Filter out only certain lines from a table to create a table without those entri
 
 Needs review from Robel.
 
-Format::
-^^^^^^^^
+Format
+^^^^^^
+Output Format::
 
     {
         "id":#,
@@ -197,8 +204,9 @@ Summary
 
 For a single line that has a field with multiple data points in one field, create multiple lines where each line has a single data point from that field. 
 
-Format::
-^^^^^^^^
+Format
+^^^^^^
+Output Format::
 
     {
         "id":#,
@@ -241,8 +249,9 @@ The rows switch with columns and vice versa(?)
 
 Needs review from Robel.
 
-Format::
-^^^^^^^^
+Format
+^^^^^^
+Output Format::
 
     {
         "id":#,
@@ -275,22 +284,25 @@ Create a new column that takes the numerical data from an existing column and no
 
 Needs review from Robel.
 
-###Format:
+Format
+^^^^^^    
+Output Format::
 
-{
-	"id":#,
-	"type":"output",
-	"inputtables":[#],
-	"action":{
-		"name":"addnormalizedcol",
-		"startcolidx":1,
-		"newfield":"normalized_example_field_1"
-		"anchorfields":["example_field_2"]
-		}
-	}
-}
+    {
+            "id":#,
+            "type":"output",
+            "inputtables":[#],
+            "action":{
+                "name":"addnormalizedcol",
+                "startcolidx":1,
+                "newfield":"normalized_example_field_1"
+                "anchorfields":["example_field_2"]
+                }
+            }
+        }
 
-###Notes: 
+Notes: 
+^^^^^^
 This action can take a single inputtable table.
 
 See use-case recipe example_part2.json for usage example.
@@ -298,31 +310,36 @@ See use-case recipe example_part2.json for usage example.
 Question for Robel:
 How is normalization calculated?
 
-###
+
 addaveragecol
-###
-###Summary
+-------------
+
+Summary
+^^^^^^^
 
 Create a new column that takes the numerical data from an existing column and averages the numbers according to (?)
 
 Needs review from Robel.
 
-###Format:
+Format
+^^^^^^  
+Output Format::
+        
+    {
+            "id":#,
+            "type":"output",
+            "inputtables":[#],
+            "action":{
+                "name":"addaveragecol",
+                "field":"example_field_1",
+                "newfield":"average_example_field_1"
+                "anchorfields":["example_field_2"]
+                }
+            }
+        }
 
-{
-	"id":#,
-	"type":"output",
-	"inputtables":[#],
-	"action":{
-		"name":"addaveragecol",
-		"field":"example_field_1",
-		"newfield":"average_example_field_1"
-		"anchorfields":["example_field_2"]
-		}
-	}
-}
-
-###Notes: 
+Notes:
+^^^^^^
 This action can take a single inputtable table.
 
 See use-case recipe example_part2.json for usage example.
@@ -331,55 +348,64 @@ Question for Robel:
 How is the average being calculated?
 
 
-###
+
 splitcol
-###
-###Summary
+--------
+
+Summary
+^^^^^^^
 
 Split a single column into two separate columns after specifying a deliminating character that separates the values. 
 
-###Format:
+Format
+^^^^^^
+Output Format::
 
-{
-	"id":#,
-	"type":"output",
-	"inputtables":[#],
-	"action":{
-		"name":"splitcol",
-		"field":"example_field_1",
-		"newfields":["example_field_1a","example_field_1b"],
-		"delim":"|"
-		}
-	}
-}
+    {
+        "id":#,
+        "type":"output",
+        "inputtables":[#],
+        "action":{
+            "name":"splitcol",
+            "field":"example_field_1",
+            "newfields":["example_field_1a","example_field_1b"],
+            "delim":"|"
+            }
+        }
+    }
 
-###Notes: 
+Notes: 
+^^^^^^
 This action can take a single inputtable table.
 
 See use-case recipe example_part1.json for usage example.
 
 
-###
+
 jointables
-###
-###Summary
+----------
+Summary
+^^^^^^^
 
 Create a new table that uses an anchor field to combine columns from multiple tables. Data with the same anchor field value will be added to the same row in the new field. 
 
-###Format:
+Format
+^^^^^^
+Output Format::
 
-{
-	"id":#,
-	"type":"output",
-	"inputtables":[#,#,#],
-	"action":{
-		"name":"jointables",
-		"anchorfields":["example_field_1","example_field_2"]
-		}
-	}
-}
+    {
+        "id":#,
+        "type":"output",
+        "inputtables":[#,#,#],
+        "action":{
+            "name":"jointables",
+            "anchorfields":["example_field_1","example_field_2"]
+            }
+        }
+    }
 
-###Notes: 
+Notes:
+^^^^^^
 This action can take multiple inputtable table.
 
 See use-case recipe example_part1.json for usage example.
