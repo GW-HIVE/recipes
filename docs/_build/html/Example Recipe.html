@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Recipe &mdash; recipes  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="make-dataset module" href="make-dataset.html" />
+    <link rel="prev" title="Summary" href="Summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> recipes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Summary.html">Summary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make-dataset.html">make-dataset module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-case%20Examples.html">Use-case Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">recipes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Example Recipe</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Example Recipe.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example-recipe">
+<h1>Example Recipe<a class="headerlink" href="#example-recipe" title="Permalink to this headline"></a></h1>
+<p><em>Here is the example.json recipe file with comments</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;outputfiles&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+                <span class="c1"># for fields, the name must be a name that has been given in the tablelist section below</span>
+                <span class="c1"># these are often field names from the input datasets, but also can be fieldnames generated from actions</span>
+                <span class="c1"># newname is the fieldname that will be generated in the output file and replace the old field name</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;newname&quot;</span><span class="p">:</span> <span class="s2">&quot;gene_symbol&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Gene Symbol&quot;</span>
+                <span class="p">},</span>
+        <span class="p">{</span>
+                    <span class="s2">&quot;newname&quot;</span><span class="p">:</span> <span class="s2">&quot;uniprot_ac&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Uniprot AC&quot;</span>
+                <span class="p">},</span>
+        <span class="p">{</span>
+                    <span class="s2">&quot;newname&quot;</span><span class="p">:</span> <span class="s2">&quot;chr_num&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Chr Num&quot;</span>
+                <span class="p">},</span>
+        <span class="p">{</span>
+                    <span class="s2">&quot;newname&quot;</span><span class="p">:</span> <span class="s2">&quot;chr_pos&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Chr Pos&quot;</span>
+                <span class="p">},</span>
+        <span class="p">{</span>
+                    <span class="s2">&quot;newname&quot;</span><span class="p">:</span> <span class="s2">&quot;ref_nt&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ref NT&quot;</span>
+                <span class="p">},</span>
+        <span class="p">{</span>
+                    <span class="s2">&quot;newname&quot;</span><span class="p">:</span> <span class="s2">&quot;alt_nt&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alt NT&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+
+        <span class="c1"># the tableid denotes what table from the tablelist will be used for this output file</span>
+            <span class="s2">&quot;tableid&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+
+        <span class="c1"># the masterlistfilter field denotes the fieldname that is used as the primary field name for filtering</span>
+            <span class="s2">&quot;masterlistfilterfield&quot;</span><span class="p">:</span><span class="s2">&quot;gene_symbol&quot;</span><span class="p">,</span>
+
+        <span class="c1"># the filepath gives the name and path for the outputfile</span>
+            <span class="s2">&quot;filepath&quot;</span><span class="p">:</span> <span class="s2">&quot;unreviewed/example_dataset.csv&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;tablelist&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="c1"># every table in tablelist has a tableid, which can be referenced by other acgtions or the outputfile</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+
+        <span class="c1"># input denotes we are taking a file in from the filepath listed</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+
+        <span class="c1"># the separator denotes the structure of the input file</span>
+        <span class="c1"># here the separator is &#39;doublequote comma doublequote&#39;</span>
+        <span class="c1"># so each line of the input file looks like this &quot;a&quot;,&quot;b&quot;,&quot;c&quot;</span>
+        <span class="s2">&quot;separator&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
+
+        <span class="c1"># list of the fields in the inout file</span>
+            <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Uniprot AC&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Chr Num&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Chr Pos&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Ref NT&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Alt NT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;EXAC Alt Frequency&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1000 Genomes Alt Frequency&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;filepath&quot;</span><span class="p">:</span> <span class="s2">&quot;downloads/example_mutations.csv&quot;</span>
+        <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="c1"># same as above for table &#39;&quot;id&quot;:1&#39;, but for a different input file</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;separator&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;uniprot accession&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Gene Symbol&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;filepath&quot;</span><span class="p">:</span> <span class="s2">&quot;downloads/example_mapping.csv&quot;</span>
+        <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="c1"># this table performs an action</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+
+        <span class="c1"># the type is output so it will be generating a new table based on the action used</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+
+        <span class="c1"># the tables that are input to generate this new table.</span>
+        <span class="c1"># in this case our input files from tables 1 and 2</span>
+        <span class="s2">&quot;inputtables&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+
+        <span class="c1"># what action will be taken to make the new table</span>
+        <span class="s2">&quot;action&quot;</span><span class="p">:{</span>
+            <span class="c1"># the name gives the specific action to take</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;jointables&quot;</span><span class="p">,</span>
+
+        <span class="c1"># different actions have their own parameters.</span>
+        <span class="c1"># in this case the jointables action has only the parameter &quot;anchorfields&quot;.</span>
+        <span class="c1"># specific details on actions are below in the README</span>
+        <span class="s2">&quot;anchorfields&quot;</span><span class="p">:[</span><span class="s2">&quot;Uniprot AC&quot;</span><span class="p">,</span> <span class="s2">&quot;uniprot accession&quot;</span><span class="p">]</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Summary.html" class="btn btn-neutral float-left" title="Summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="make-dataset.html" class="btn btn-neutral float-right" title="make-dataset module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, GW-Hive.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -10,7 +10,12 @@ Welcome to recipes's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   make-dataset
+   Summary
+   Example Recipe
+   Recipe Actions
+   Use-case Examples
+   Running the Script
+   Troubleshooting
 
 
 
