@@ -1,9 +1,65 @@
+'''
+This script provides performs given actions on datasets, as specified by a recipe json.
+
+Full list of documented actions:
+- union
+- addconstantfield
+- makecombofield
+- filterin
+- filterout
+- expandrows
+- transposecols
+- addnormalizedcol
+- addaveragecol
+- splitcol
+- jointables
+
+Input:
+#######
+    * df_list : The data tables taken as input in the recipe json.
+    * table_ind : The data tables created as output in the recipe json.
+    * action_obj : The specific action performed in the recipe json.
+
+Output:
+#######
+    * data_frame : The final data table produced by a given action.
+
+'''
+
 import csv
 import json
 
 
 def split_col(df_list, table_ind, action_obj):
+'''
+###
+Split Column
+###
+###Summary
 
+Split a single column into two separate columns.
+
+Input:
+#######
+    * field : The given field to split.
+    * newfields : The name of the two new fields.
+    * delim : The deliminator character where the value will be split.
+
+###Recipe Action Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"splitcol",
+		"field":"example_field_1",
+		"newfields":["example_field_1a","example_field_1b"],
+		"delim":"|"
+		}
+	}
+}
+'''
     field_list = df_list[table_ind]["fields"]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
    
@@ -26,6 +82,42 @@ def split_col(df_list, table_ind, action_obj):
 
 
 def add_average_col(df_list, table_ind, action_obj):
+'''
+###
+Add Average Column
+###
+###Summary
+
+Create a new column that takes the numerical data from an existing column and averages the numbers according to (?)
+
+####Average calculation
+
+x_sum/x_count
+
+x_sum = sum of all values for given field
+x_count = number of values for a given field
+
+Input:
+#######
+    * field : The given field to average.
+    * newfield : The name of the field to display the average.
+    * anchorfields : A list of the fields that represent unique rows.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"addaveragecol",
+		"field":"example_field_1",
+		"newfield":"average_example_field_1"
+		"anchorfields":["example_field_2"]
+		}
+	}
+}
+'''
 
     field_list = df_list[table_ind]["fields"]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
@@ -61,6 +153,42 @@ def add_average_col(df_list, table_ind, action_obj):
     
 
 def add_normalized_col(df_list, table_ind, action_obj):
+'''
+###
+Add Normalized Column
+###
+###Summary
+
+Create a new column with normalized values from a given column.
+
+####Normalization calculation
+
+x/x_sum
+
+x = value in given field and per row
+x_sum = sum of all values for given field
+
+Input:
+#######
+    * field : The given field to normalize
+    * newfield : The name of the new normalized field
+    * anchorfields : A list of the fields that represent unique rows
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"addnormalizedcol",
+		"field":"example_field_1",
+		"newfield":"normalized_example_field_1"
+		"anchorfields":["example_field_2"]
+		}
+	}
+}
+'''
 
     field_list = df_list[table_ind]["fields"]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
@@ -99,7 +227,37 @@ def add_normalized_col(df_list, table_ind, action_obj):
 
 
 def transpose_cols(df_list, table_ind, action_obj):
-    
+'''
+###
+Transpose Columns
+###
+###Summary
+
+Rows become columns and columns become rows.
+
+Input:
+#######
+    * startcolidx : The left most column to begin transposing into rows.
+    * newfieldone : A new field to add after the transposition.
+    * newfieldtwo : A second new field to add after the transposition.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"transposecols",
+		"startcolidx":1,
+		"newfieldone":"new_example_field_1"
+		"newfieldtwo":"new_example_field_2"
+		}
+	}
+}
+'''
+
+
     field_list = df_list[table_ind]["fields"]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
     start_col_idx = action_obj["startcolidx"]
@@ -121,6 +279,34 @@ def transpose_cols(df_list, table_ind, action_obj):
 
 
 def expand_rows(df_list, table_ind, action_obj):
+'''
+###
+Expand Rows
+###
+###Summary
+
+Create new rows from a single field value that contains multiple entries.
+
+Input:
+#######
+    * expansionfield : The field containing multiple entries to expand into new rows.
+    * expansiondelim: The deliminating character that separates the entries.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"expandrows",
+		"expansionfield":"example_field_1",
+		"expansiondelim":";"
+		}
+	}
+}
+
+'''
 
     field_list = df_list[table_ind]["fields"]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
@@ -143,7 +329,41 @@ def expand_rows(df_list, table_ind, action_obj):
 
 
 def filter_out_records(df_list, table_ind, action_obj):
+'''
+###
+Filter Out
+###
+###Summary
 
+Filter out certain rows from a table.
+
+Input:
+#######
+    * conditionlist : A list of further inputs to create the filter.
+    * field : The field to apply the filter to.
+    * value : A list of values in the field to filter out.
+    * operation : Must be 'in' for filter to function.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"filterout",
+		"operation":"AND",
+		"conditionlist":[
+			"field":"example_field_1",
+			"value":[
+				"DEF"
+				"123"
+				"456"
+			],
+			"operation":"in"
+	}
+}
+'''
     field_list = df_list[table_ind]["fields"]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
 
@@ -167,6 +387,41 @@ def filter_out_records(df_list, table_ind, action_obj):
 
 
 def filter_in_records(df_list, table_ind, action_obj):
+'''
+###
+Filter In
+###
+###Summary
+
+Include only values specified in a filter to a new table.
+
+Input:
+#######
+    * conditionlist : A list of further inputs to create the filter.
+    * field : The field to apply the filter to.
+    * value : A list of values in the field to filter in.
+    * operation : Must be 'in' for filter to function.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"filterin",
+		"operation":"AND",
+		"conditionlist":[
+			"field":"example_field_1",
+			"value":[
+				"ABC",
+				"-",
+				""
+			],
+			"operation":"in"
+	}
+}
+'''
 
     field_list = df_list[table_ind]["fields"]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
@@ -191,7 +446,37 @@ def filter_in_records(df_list, table_ind, action_obj):
 
 
 def add_combo_field(df_list, table_ind, action_obj):
+'''
+###
+Make Combo Field
+###
+###Summary
 
+Combine two fields into one field.
+
+Input:
+#######
+    * fieldlist : A list of fields to combine.
+    * merge_char : The deliminating characater that will separate values from the combined field.
+    * combofield : The name of the new combined field.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#],
+	"action":{
+		"name":"makecombofield",
+		"fieldlist":[
+			"example_field_1",
+			"example_field_2"
+		],
+		"merge_char":"|",
+		"combofield":"example_combo_field"
+	}
+}
+'''
     field_list = df_list[table_ind]["fields"] + [action_obj["combofield"]]
     data_frame = {"fields":field_list, "data":df_list[table_ind]["data"]}
    
@@ -206,6 +491,33 @@ def add_combo_field(df_list, table_ind, action_obj):
 
 
 def add_constant_fields(df_list, table_ind, new_data):
+'''
+###
+Add Constant Field
+###
+###Summary
+
+Add new fields to a table that each have a constant value per row.
+
+Input:
+#######
+    * newfields : A list of fields and values to add.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#,#,#],
+	"action":{
+		"name":"addconstantfield",
+		"newfields":{
+			"example_field_1":"example_entry_1",
+			"example_field_2":"example_entry_2"
+		}
+	}
+}
+'''
 
     new_data_field_list = new_data.keys()
     field_list = df_list[table_ind]["fields"] + new_data_field_list
@@ -224,7 +536,25 @@ def add_constant_fields(df_list, table_ind, new_data):
 
 
 def union_tables(df_list,ind_list):
+'''
+###
+union
+###
+###Summary
 
+Merge multiple tables and remove duplicate lines.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#,#,#],
+	"action":{
+		"name":"union"
+	}
+}
+'''
     out_tbl = []
     first_ind = ind_list[0] - 1
     for i in ind_list:
@@ -416,8 +746,35 @@ def load_workbook(workbook_obj, fileset_objlist, separator):
 
 
 def join_tables(df_one, df_two, anchor_fields):
-    #It is assumed that the first column in both tables are the anchor columns
-    
+'''
+###
+Join Tables
+###
+###Summary
+
+Combine multiple separate tables based on a given anchor field in each table.
+
+Input:
+#######
+    * anchorfields : A field from each table that is used to compare then join.
+
+Note:
+#######
+    * The anchor field must be the first column in each table.
+
+###Format:
+
+{
+	"id":#,
+	"type":"output",
+	"inputtables":[#,#],
+	"action":{
+		"name":"jointables",
+		"anchorfields":["example_field_1","example_field_2"]
+		}
+	}
+}
+'''
     df_three = {"fields":[], "data":[]}
     df_three["fields"] = []
     for f in df_one["fields"]:
