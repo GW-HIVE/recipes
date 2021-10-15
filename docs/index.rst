@@ -12,7 +12,8 @@ Welcome to recipes's documentation!
 
    Summary
    Example Recipe
-   Recipe Actions
+   make-dataset
+   csvutil
    Use-case Examples
    Running the Script
    Troubleshooting
