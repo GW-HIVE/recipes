@@ -13,11 +13,11 @@ Recipe files (json) are used to describe actions to manipulate a given dataset f
    :maxdepth: 2
    :caption: Contents:
 
-   Example Recipe
-   modules
-   Use-case Examples
-   Running the Script
-   Troubleshooting
+   Example Recipe <example_recipe>
+   Scripts <scripts>
+   Use-case Examples <usecase_examples>
+   Running the Script <running_the_script>
+   Troubleshooting <troubleshooting>
 
 
 
