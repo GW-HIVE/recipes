@@ -12,8 +12,7 @@ Welcome to recipes's documentation!
 
    Summary
    Example Recipe
-   make-dataset
-   csvutil
+   modules
    Use-case Examples
    Running the Script
    Troubleshooting

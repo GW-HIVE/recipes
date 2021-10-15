@@ -5,3 +5,4 @@ scripts
    :maxdepth: 4
 
    make-dataset
+   csvutil
