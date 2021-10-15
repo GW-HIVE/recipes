@@ -6,6 +6,9 @@
 Welcome to recipes's documentation!
 ===================================
 
+Recipe files are used to describe the actions that the script "make-datasets.py" will perform on a ".csv" dataset file, to process the dataset for integration into projects such as OncoMX or Glygen.
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
