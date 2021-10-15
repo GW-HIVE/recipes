@@ -10,7 +10,6 @@ Welcome to recipes's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Summary
    Example Recipe
    modules
    Use-case Examples
