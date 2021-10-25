@@ -6,18 +6,16 @@
 Welcome to recipes's documentation!
 ===================================
 
-Recipe files (json) are used to describe actions to manipulate a given dataset file (typically csv). 
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   Example Recipe <example_recipe>
-   Scripts <scripts>
-   Use-case Examples <usecase_examples>
-   Running the Script <running_the_script>
-   Troubleshooting <troubleshooting>
+   Summary
+   Example Recipe
+   Recipe Actions
+   Use-case Examples
+   Running the Script
+   Troubleshooting
 
 
 
