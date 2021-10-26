@@ -10,12 +10,12 @@ Welcome to recipes's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Summary
-   Example Recipe
-   Recipe Actions
-   Use-case Examples
-   Running the Script
-   Troubleshooting
+   Summary <summary>
+   Example Recipe <example_recipe>
+   Recipe Actions <recipe_actions>
+   Use-case Examples <usecase_examples>
+   Running the Script <running_the_script>
+   Troubleshooting <troubleshooting>
 
 
 
